@@ -10,6 +10,8 @@ GameObject:
   - 4: {fileID: 442240}
   - 212: {fileID: 21294274}
   - 61: {fileID: 6113900}
+  - 50: {fileID: 5097748}
+  - 114: {fileID: 11481308}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -29,6 +31,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5097748
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185478}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &6113900
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -42,6 +60,18 @@ BoxCollider2D:
   m_Offset: {x: -.0142289996, y: .0426871777}
   serializedVersion: 2
   m_Size: {x: 2.31962538, y: .581959724}
+--- !u!114 &11481308
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8bb8a6ffb7c344687c60aa2a9d3a58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: {x: 50, y: 50}
 --- !u!212 &21294274
 SpriteRenderer:
   m_ObjectHideFlags: 1
