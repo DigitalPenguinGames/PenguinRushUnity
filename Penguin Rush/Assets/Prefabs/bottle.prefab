@@ -9,6 +9,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 454454}
   - 212: {fileID: 21224924}
+  - 50: {fileID: 5081812}
+  - 60: {fileID: 6008136}
   m_Layer: 0
   m_Name: bottle
   m_TagString: Untagged
@@ -23,11 +25,64 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.270000011, z: 0}
+  m_LocalPosition: {x: 11, y: -.270000011, z: 0}
   m_LocalScale: {x: .740753233, y: .740753233, z: .740753233}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5081812
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166392}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!60 &6008136
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166392}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: .401230246, y: .178075701}
+      - {x: .342391729, y: .259215027}
+      - {x: .447382361, y: .599605739}
+      - {x: .170000002, y: .234999999}
+      - {x: .123076558, y: .330536276}
+      - {x: -.0230734758, y: .247460574}
+      - {x: -.156766251, y: .121151417}
+      - {x: -.251632452, y: -.100078881}
+      - {x: -.33855775, y: -.399491131}
+      - {x: -.375535548, y: -.481309146}
+      - {x: -.476766855, y: -.753769755}
+      - {x: -.303075939, y: -.8980757}
+      - {x: -.141229451, y: -.936230361}
+      - {x: .00061282079, y: -.946845472}
+      - {x: .160775334, y: -.918020844}
+      - {x: .308611929, y: -.491151363}
+      - {x: .391074926, y: -.262539476}
+      - {x: .444892436, y: .0255325641}
+    - - {x: .322459608, y: .86376977}
+      - {x: .291846901, y: .783154547}
+      - {x: .238770947, y: .626230359}
+      - {x: .120156646, y: .340236634}
+      - {x: .449999988, y: .595000029}
+      - {x: .501846135, y: .810693979}
 --- !u!212 &21224924
 SpriteRenderer:
   m_ObjectHideFlags: 1

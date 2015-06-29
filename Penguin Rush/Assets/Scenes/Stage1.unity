@@ -96,6 +96,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 118831322}
   - 212: {fileID: 118831323}
+  - 114: {fileID: 118831324}
   m_Layer: 0
   m_Name: background2_2
   m_TagString: Untagged
@@ -141,6 +142,19 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: da31f2ab6a94f3c40b280ef30224701a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &118831324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 118831321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e57643a36ac59be4aa89ed1328268347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1.5
+  size: 19
 --- !u!1 &246652987
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,6 +164,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 246652988}
   - 212: {fileID: 246652989}
+  - 114: {fileID: 246652990}
   m_Layer: 0
   m_Name: sea
   m_TagString: Untagged
@@ -195,6 +210,19 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 62218f36e5e7829479e980a94eb01846, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &246652990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 246652987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e57643a36ac59be4aa89ed1328268347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  size: 19
 --- !u!1 &411716225
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +290,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 503394344}
   - 212: {fileID: 503394345}
+  - 114: {fileID: 503394346}
   m_Layer: 0
   m_Name: background3_2
   m_TagString: Untagged
@@ -307,6 +336,19 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 87e7cee2d41f46f4d9dba6347d8e1b3b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &503394346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 503394343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e57643a36ac59be4aa89ed1328268347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  size: 19
 --- !u!1001 &626361541
 Prefab:
   m_ObjectHideFlags: 0
@@ -394,7 +436,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 454454, guid: 5398b7e9994343e428b03651b1514e1a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 454454, guid: 5398b7e9994343e428b03651b1514e1a, type: 2}
       propertyPath: m_LocalPosition.y
@@ -474,6 +516,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 945635064}
   - 212: {fileID: 945635065}
+  - 114: {fileID: 945635066}
   m_Layer: 0
   m_Name: sea_2
   m_TagString: Untagged
@@ -519,6 +562,19 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 62218f36e5e7829479e980a94eb01846, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &945635066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 945635063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e57643a36ac59be4aa89ed1328268347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  size: 19
 --- !u!1001 &1003164933
 Prefab:
   m_ObjectHideFlags: 0
@@ -627,7 +683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57643a36ac59be4aa89ed1328268347, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: .5
   size: 19
 --- !u!1001 &1018840379
 Prefab:
@@ -684,6 +740,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1101762585}
   - 212: {fileID: 1101762586}
+  - 114: {fileID: 1101762587}
   m_Layer: 0
   m_Name: background2
   m_TagString: Untagged
@@ -729,6 +786,19 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: da31f2ab6a94f3c40b280ef30224701a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1101762587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1101762584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e57643a36ac59be4aa89ed1328268347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1.5
+  size: 19
 --- !u!1 &1363556022
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,6 +889,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1398953660}
   - 212: {fileID: 1398953661}
+  - 114: {fileID: 1398953662}
   m_Layer: 0
   m_Name: background3
   m_TagString: Untagged
@@ -864,6 +935,19 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 87e7cee2d41f46f4d9dba6347d8e1b3b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1398953662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1398953659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e57643a36ac59be4aa89ed1328268347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  size: 19
 --- !u!1001 &1609795520
 Prefab:
   m_ObjectHideFlags: 0
@@ -873,7 +957,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 435570, guid: ea17a897535df1c4a961bc7e696d2218, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 11.3999996
       objectReference: {fileID: 0}
     - target: {fileID: 435570, guid: ea17a897535df1c4a961bc7e696d2218, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1004,7 +1088,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 478800, guid: eb0b4c424e5f9ba46832269ff62755dd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 478800, guid: eb0b4c424e5f9ba46832269ff62755dd, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1134,7 +1218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57643a36ac59be4aa89ed1328268347, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: .5
   size: 19
 --- !u!1001 &1987428091
 Prefab:
