@@ -1412,6 +1412,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c8bb8a6ffb7c344687c60aa2a9d3a58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 50, y: 20}
-  gravity: 2
+  jumptime: .400000006
+  dist: 4.5
+  gravity: -1
   center: -.150000006
+  interval: .5
