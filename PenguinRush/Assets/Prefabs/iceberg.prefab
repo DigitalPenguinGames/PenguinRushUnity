@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21275180}
   - 50: {fileID: 5028456}
   - 60: {fileID: 6043680}
+  - 114: {fileID: 11422736}
   m_Layer: 0
   m_Name: iceberg
   m_TagString: Untagged
@@ -37,7 +38,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 118856}
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
@@ -150,6 +151,18 @@ PolygonCollider2D:
       - {x: .270000011, y: -2.80500007}
       - {x: .319999993, y: -2.5250001}
       - {x: .419999987, y: -2.28500009}
+--- !u!114 &11422736
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b84c3dddcdd6fd42baaa55973435023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: {x: 0, y: 0}
 --- !u!212 &21275180
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -36,9 +36,7 @@ public class PlayerScript : MonoBehaviour {
 				movement.y = - gravity * jumptime;
 				movement.y *= inputY;
 			}
-			//print(inputY);
 		}
-
 	}
 
 	void FixedUpdate() {

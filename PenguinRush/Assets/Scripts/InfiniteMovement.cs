@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AutoMovement : MonoBehaviour {
+public class InfiniteMovement : MonoBehaviour {
 
 	public float speed = 0;
 	public int size = 19;
