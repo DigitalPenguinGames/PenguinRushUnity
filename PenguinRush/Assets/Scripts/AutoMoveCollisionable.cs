@@ -3,12 +3,19 @@ using System.Collections;
 
 public class AutoMoveCollisionable : MonoBehaviour {
 
-	public Vector2 speed = new Vector2(0,0);
+	private Vector2 speed = new Vector2(0,0);
+	private float center = -0.15f;
+	private float gravity = 0.2f;
 
-
-	// Update is called once per frame
-	void FixedUpdate() {
+	void Start() {
 		GetComponent<Rigidbody2D>().velocity = speed;
+	}
+
+	void FixedUpdate() {
+		float gravityDirection;
+		if (transform.position.y > center) gravityDirection = -1;
+		else gravityDirection = 1;
+		GetComponent<Rigidbody2D>().velocity += new Vector2(0, gravity * gravityDirection);
 	}
 
 	public void setSpeed(Vector2 s) {

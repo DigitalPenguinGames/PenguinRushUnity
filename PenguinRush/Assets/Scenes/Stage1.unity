@@ -846,7 +846,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11481308, guid: 567a5d72b76c27e4386a32172fd53289, type: 2}
       propertyPath: rotationForce
-      value: 25
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097748, guid: 567a5d72b76c27e4386a32172fd53289, type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097748, guid: 567a5d72b76c27e4386a32172fd53289, type: 2}
+      propertyPath: m_Constraints
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 567a5d72b76c27e4386a32172fd53289, type: 2}

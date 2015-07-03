@@ -4,7 +4,7 @@ public class PlayerScript : MonoBehaviour {
 
 	public float jumptime = 0.4f;
 	public float dist = 4.5f;
-	public Vector2 center = new Vector2(0,-0.15f);
+	public Vector2 center = new Vector2(-7,-0.15f);
 
 	public float rotationForce = 1;
 
@@ -51,6 +51,8 @@ public class PlayerScript : MonoBehaviour {
 			movement.y *= 0.5f;
 			lastJump = dir.none;
 		}
+		// Horizontal Speed
+		movement.x = center.x - transform.position.x;
 		// Speed
 		GetComponent<Rigidbody2D>().velocity = movement;
 
@@ -58,6 +60,6 @@ public class PlayerScript : MonoBehaviour {
 		float angularDirection;
 		if (transform.rotation.z < 180) angularDirection = transform.rotation.z;
 		else angularDirection = 360 - transform.rotation.z;
-		GetComponent<Rigidbody2D>().angularVelocity = rotationForce*(rotationForce * angularDirection*0.5f)+ GetComponent<Rigidbody2D>().angularVelocity*0.5f;
+		GetComponent<Rigidbody2D>().angularVelocity = (rotationForce * Mathf.Pow(angularDirection,5)*0.5f)+ GetComponent<Rigidbody2D>().angularVelocity*0.5f;
 	}
 }

@@ -130,7 +130,7 @@ MonoBehaviour:
   jumptime: .400000006
   dist: 4.5
   center: {x: -7, y: -.150000006}
-  rotationForce: 10
+  rotationForce: 25
 --- !u!212 &21294274
 SpriteRenderer:
   m_ObjectHideFlags: 1
