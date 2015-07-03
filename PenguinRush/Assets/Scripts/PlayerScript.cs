@@ -6,6 +6,8 @@ public class PlayerScript : MonoBehaviour {
 	public float dist = 4.5f;
 	public Vector2 center = new Vector2(0,-0.15f);
 
+	public float rotationForce = 1;
+
 	private Vector2 movement = new Vector2(0,0);
 	private float gravity = 0f;
 
@@ -43,13 +45,19 @@ public class PlayerScript : MonoBehaviour {
 		// Gravity
 		if (transform.position.y > center.y) movement.y += gravity*Time.deltaTime;
 		else movement.y -= gravity*Time.deltaTime;
+		// Crossing the middle
 		if (transform.position.y > center.y && transform.position.y + movement.y*Time.deltaTime < center.y
 		    || transform.position.y < center.y && transform.position.y + movement.y*Time.deltaTime > center.y) {
 			movement.y *= 0.5f;
 			lastJump = dir.none;
 		}
-		GetComponent<Rigidbody2D>().velocity = movement;	
+		// Speed
+		GetComponent<Rigidbody2D>().velocity = movement;
 
-		//print("gravity " + gravity  + " movement: " + movement.y);
+		// Agular
+		float angularDirection;
+		if (transform.rotation.z < 180) angularDirection = transform.rotation.z;
+		else angularDirection = 360 - transform.rotation.z;
+		GetComponent<Rigidbody2D>().angularVelocity = rotationForce*(rotationForce * angularDirection*0.5f)+ GetComponent<Rigidbody2D>().angularVelocity*0.5f;
 	}
 }

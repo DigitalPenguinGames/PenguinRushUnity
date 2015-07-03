@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21224924}
   - 50: {fileID: 5081812}
   - 60: {fileID: 6008136}
+  - 114: {fileID: 11445360}
   m_Layer: 0
   m_Name: bottle
   m_TagString: Untagged
@@ -83,6 +84,18 @@ PolygonCollider2D:
       - {x: .120156646, y: .340236634}
       - {x: .449999988, y: .595000029}
       - {x: .501846135, y: .810693979}
+--- !u!114 &11445360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b84c3dddcdd6fd42baaa55973435023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: {x: 0, y: 0}
 --- !u!212 &21224924
 SpriteRenderer:
   m_ObjectHideFlags: 1

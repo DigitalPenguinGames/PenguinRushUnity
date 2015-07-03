@@ -4,26 +4,31 @@ using Random = UnityEngine.Random;
 
 public class PropsManager : MonoBehaviour {
 
-	public GameObject[] fish;
-	public Vector2 fishPosition = new Vector2 (-1f, -4.5f); // Y position at spawn
-	public Vector2 fishTime = new Vector2(100,200);
-	public Vector2 fishSpeed = new Vector2(100,300); //centiseconds 
-	private float nextFish = 0;
+	public GameObject[] props;
+	public GameObject parent;
+	public Vector2 position = new Vector2 (-1f, -4.5f); // Y position at spawn
+	public Vector2 time = new Vector2(100,200); // centiseconds
+	public Vector2 speed = new Vector2(100,300); //centiseconds 
+
+	private float next = 0;
+	private float sizeOfBoard = 19;
 	
 
 	// Update is called once per frame
 	void Update () {
-		nextFish -= Time.deltaTime;
-		if (nextFish < 0) { // Spawn a new fish
-			Vector3 pos = new Vector3(10,Random.Range(fishPosition.x,fishPosition.y),0);
-			GameObject instance = Instantiate(fish[Random.Range(0,fish.Length)],pos, Quaternion.identity) as GameObject;
-			float speed = Random.Range(fishSpeed.x, fishSpeed.y)/100f;
+		next -= Time.deltaTime;
+		if (next < 0) { // Spawn a new fish
+			Vector3 pos = new Vector3(0,Random.Range(position.x,position.y),0);
+			GameObject instance = Instantiate(props[Random.Range(0,props.Length)],pos, Quaternion.identity) as GameObject;
+			float x = sizeOfBoard/2 + instance.GetComponent<SpriteRenderer>().sprite.bounds.size.x/2;
+			instance.transform.Translate(new Vector3(x,0,0));
+			float s = Random.Range(speed.x, speed.y)/100f;
 			instance.GetComponent<AutoMoveNoCollisionable>().setSpeed(
-				new Vector2(-speed,0f)
+				new Vector2(-s,0f)
 			);
-			instance.transform.SetParent(GameObject.FindGameObjectWithTag("Foreground").transform);
-			nextFish = Random.Range(fishTime.x, fishTime.y);
-			Destroy(instance,1 + 19/speed);
+			instance.transform.SetParent(parent.transform);
+			next = Random.Range(time.x, time.y)/100;
+			Destroy(instance,(instance.GetComponent<SpriteRenderer>().bounds.size.x + sizeOfBoard)/s	);
 		}
 	}
 }

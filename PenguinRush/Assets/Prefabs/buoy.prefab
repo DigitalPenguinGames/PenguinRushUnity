@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21241554}
   - 50: {fileID: 5055680}
   - 60: {fileID: 6051368}
+  - 114: {fileID: 11411516}
   m_Layer: 0
   m_Name: buoy
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 177500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12, y: .810000002, z: 0}
+  m_LocalPosition: {x: 12, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -37,7 +38,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 177500}
-  m_Mass: 1
+  m_Mass: 50
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
@@ -56,7 +57,7 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 1.13}
   m_Points:
     m_Paths:
     - - {x: .699999988, y: -1.80499995}
@@ -218,6 +219,18 @@ PolygonCollider2D:
       - {x: .100000001, y: 1.06500006}
       - {x: .100000001, y: .975000024}
       - {x: .0599999987, y: .975000024}
+--- !u!114 &11411516
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b84c3dddcdd6fd42baaa55973435023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: {x: -2, y: 0}
 --- !u!212 &21241554
 SpriteRenderer:
   m_ObjectHideFlags: 1

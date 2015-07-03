@@ -10,4 +10,8 @@ public class AutoMoveCollisionable : MonoBehaviour {
 	void FixedUpdate() {
 		GetComponent<Rigidbody2D>().velocity = speed;
 	}
+
+	public void setSpeed(Vector2 s) {
+		speed = s;
+	}
 }
