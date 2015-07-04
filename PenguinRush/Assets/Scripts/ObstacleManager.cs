@@ -8,6 +8,7 @@ public class ObstacleManager : MonoBehaviour {
 	public Vector2 position = new Vector2 (0f, 0f); // Y position at spawn
 	public Vector2 time = new Vector2(100,200); // centiseconds
 	public Vector2 speed = new Vector2(400,400); //centiseconds 
+	public Vector2 rotation = new Vector2(90,90);
 	
 	private float next = 0;
 	private float sizeOfBoard = 19;
@@ -24,9 +25,11 @@ public class ObstacleManager : MonoBehaviour {
 			float s = Random.Range(speed.x, speed.y)/100f;
 			instance.GetComponent<AutoMoveCollisionable>().setSpeed(
 				new Vector2(-s,0f)
-				);
+			);
+			float r = Random.Range(rotation.x,rotation.y) - (rotation.x+rotation.y)/2;
+			instance.GetComponent<AutoMoveCollisionable>().setRotation(r);
 			instance.transform.SetParent(parent.transform);
-			next = Random.Range(time.x, time.y)/100;
+			next = Random.Range(time.x,time.y)/100;
 			Destroy(instance,(instance.GetComponent<SpriteRenderer>().bounds.size.x + sizeOfBoard)/s +2	);
 		}
 	}

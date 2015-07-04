@@ -58,8 +58,10 @@ public class PlayerScript : MonoBehaviour {
 
 		// Agular
 		float angularDirection;
-		if (transform.rotation.z < 180) angularDirection = transform.rotation.z;
-		else angularDirection = 360 - transform.rotation.z;
-		GetComponent<Rigidbody2D>().angularVelocity = (rotationForce * Mathf.Pow(angularDirection,5)*0.5f)+ GetComponent<Rigidbody2D>().angularVelocity*0.5f;
+		angularDirection = transform.rotation.z;
+		if (transform.rotation.z < 0) angularDirection = Mathf.Min (0.2f, angularDirection);
+		else angularDirection = Mathf.Max (-0.2f, angularDirection);
+		angularDirection = - Mathf.Pow(angularDirection*100,2) * Mathf.Sign(angularDirection);
+		GetComponent<Rigidbody2D>().angularVelocity = (rotationForce * angularDirection * 0.5f)+ GetComponent<Rigidbody2D>().angularVelocity*0.5f;
 	}
 }

@@ -663,7 +663,8 @@ MonoBehaviour:
   parent: {fileID: 2016464097}
   position: {x: 0, y: 0}
   time: {x: 300, y: 300}
-  speed: {x: 400, y: 400}
+  speed: {x: 600, y: 600}
+  rotation: {x: 0, y: 20}
 --- !u!114 &1363556025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -846,7 +847,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11481308, guid: 567a5d72b76c27e4386a32172fd53289, type: 2}
       propertyPath: rotationForce
-      value: 250
+      value: .100000001
       objectReference: {fileID: 0}
     - target: {fileID: 5097748, guid: 567a5d72b76c27e4386a32172fd53289, type: 2}
       propertyPath: m_IsKinematic
