@@ -5,6 +5,7 @@ public class ObstacleManager : MonoBehaviour {
 
 	public GameObject[] props;
 	public GameObject parent;
+	public GameObject player;
 	public Vector2 position = new Vector2 (0f, 0f); // Y position at spawn
 	public Vector2 time = new Vector2(100,200); // centiseconds
 	public Vector2 speed = new Vector2(400,400); //centiseconds 
@@ -31,6 +32,7 @@ public class ObstacleManager : MonoBehaviour {
 			instance.transform.SetParent(parent.transform);
 			next = Random.Range(time.x,time.y)/100;
 			Destroy(instance,(instance.GetComponent<SpriteRenderer>().bounds.size.x + sizeOfBoard)/s +2	);
+			player.GetComponent<PlayerScript>().setObstacleSpeed(s);
 		}
 	}
 }

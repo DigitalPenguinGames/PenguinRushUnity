@@ -16,6 +16,12 @@ public class PlayerScript : MonoBehaviour {
 	};
 	private dir lastJump = dir.none;
 
+	private float obstacleSpeed=0;
+
+	public void setObstacleSpeed(float s) {
+		obstacleSpeed = s;
+	}
+
 	void Awake() {
 		transform.position = center;
 	}
@@ -59,9 +65,21 @@ public class PlayerScript : MonoBehaviour {
 		// Agular
 		float angularDirection;
 		angularDirection = transform.rotation.z;
-		if (transform.rotation.z < 0) angularDirection = Mathf.Min (0.2f, angularDirection);
-		else angularDirection = Mathf.Max (-0.2f, angularDirection);
+		if (transform.rotation.z > 0) angularDirection = Mathf.Max (0.2f, angularDirection);
+		else angularDirection = Mathf.Min (-0.2f, angularDirection);
 		angularDirection = - Mathf.Pow(angularDirection*100,2) * Mathf.Sign(angularDirection);
-		GetComponent<Rigidbody2D>().angularVelocity = (rotationForce * angularDirection * 0.5f)+ GetComponent<Rigidbody2D>().angularVelocity*0.5f;
+		// jump Rotation
+		float jumpRotation = 180 - Mathf.Rad2Deg * Mathf.Atan2(movement.y,(movement.x-obstacleSpeed));
+		float auxRotation = transform.rotation.eulerAngles.z;
+		//jumpRotation = unityRotation(jumpRotation-auxRotation);
+		GetComponent<Rigidbody2D>().angularVelocity = 
+			(rotationForce * angularDirection * 0.5f) + 
+			GetComponent<Rigidbody2D>().angularVelocity*0.5f;
+			//+ (jumpRotation - auxRotation) * 20;
+	}
+
+	private float unityRotation(float degrees) {
+		if (degrees < 180) return degrees/180;
+		else return -(1 - degrees/180);
 	}
 }

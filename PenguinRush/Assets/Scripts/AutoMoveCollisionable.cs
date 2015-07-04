@@ -23,7 +23,6 @@ public class AutoMoveCollisionable : MonoBehaviour {
 		float angularDirection = -1;
 		if ( rotation < 0) angularDirection = 1;
 		GetComponent<Rigidbody2D>().angularVelocity += angularForce*angularDirection;
-		print("Rotacion " + rotation + " angular " + angularDirection + " INITR " + initRotation);
 	}
 
 	public void setSpeed(Vector2 s) {
