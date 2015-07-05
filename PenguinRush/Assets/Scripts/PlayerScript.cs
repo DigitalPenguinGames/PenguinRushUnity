@@ -65,8 +65,8 @@ public class PlayerScript : MonoBehaviour {
 		// Agular
 		float angularDirection;
 		angularDirection = transform.rotation.z;
-		if (transform.rotation.z > 0) angularDirection = Mathf.Max (0.2f, angularDirection);
-		else angularDirection = Mathf.Min (-0.2f, angularDirection);
+		if (transform.rotation.z > 0) angularDirection = Mathf.Max (0.2f, Mathf.Min(0.6f ,angularDirection));
+		else angularDirection = Mathf.Min (-0.2f, Mathf.Max( -0.6f, angularDirection));
 		angularDirection = - Mathf.Pow(angularDirection*100,2) * Mathf.Sign(angularDirection);
 		// jump Rotation
 		float jumpRotation = 180 - Mathf.Rad2Deg * Mathf.Atan2(movement.y,(movement.x-obstacleSpeed));

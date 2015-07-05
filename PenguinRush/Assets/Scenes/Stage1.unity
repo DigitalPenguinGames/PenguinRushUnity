@@ -159,6 +159,23 @@ MonoBehaviour:
 GameObject:
   m_PrefabParentObject: {fileID: 185478, guid: 567a5d72b76c27e4386a32172fd53289, type: 2}
   m_PrefabInternal: {fileID: 1524051501}
+--- !u!95 &153352290
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 153352285}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ab46d676bce35424ea370893ec7427ac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &246652987
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,22 +866,6 @@ Prefab:
     - target: {fileID: 442240, guid: 567a5d72b76c27e4386a32172fd53289, type: 2}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11481308, guid: 567a5d72b76c27e4386a32172fd53289, type: 2}
-      propertyPath: rotationForce
-      value: .100000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 5097748, guid: 567a5d72b76c27e4386a32172fd53289, type: 2}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5097748, guid: 567a5d72b76c27e4386a32172fd53289, type: 2}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 442240, guid: 567a5d72b76c27e4386a32172fd53289, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 567a5d72b76c27e4386a32172fd53289, type: 2}
