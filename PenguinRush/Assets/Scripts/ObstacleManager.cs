@@ -13,17 +13,19 @@ public class ObstacleManager : MonoBehaviour {
 	
 	private float next = 0;
 	private float sizeOfBoard = 19;
+	private float speedFactor = 1;
 	
 	
 	// Update is called once per frame
 	void Update () {
 		next -= Time.deltaTime;
 		if (next < 0) { // Spawn a new fish
+			speedFactor += 0.05;
 			Vector3 pos = new Vector3(0,Random.Range(position.x,position.y),0);
 			GameObject instance = Instantiate(props[Random.Range(0,props.Length)],pos, Quaternion.identity) as GameObject;
 			float x = sizeOfBoard/2 + instance.GetComponent<SpriteRenderer>().sprite.bounds.size.x/2;
 			instance.transform.Translate(new Vector3(x,0,0));
-			float s = Random.Range(speed.x, speed.y)/100f;
+			float s = speedFactor*Random.Range(speed.x, speed.y)/100f;
 			instance.GetComponent<AutoMoveCollisionable>().setSpeed(
 				new Vector2(-s,0f)
 			);
@@ -32,7 +34,7 @@ public class ObstacleManager : MonoBehaviour {
 			instance.transform.SetParent(parent.transform);
 			next = Random.Range(time.x,time.y)/100;
 			Destroy(instance,(instance.GetComponent<SpriteRenderer>().bounds.size.x + sizeOfBoard)/s +2	);
-			player.GetComponent<PlayerScript>().setObstacleSpeed(s);
+			if ( player != null )player.GetComponent<PlayerScript>().setObstacleSpeed(s);
 		}
 	}
 }

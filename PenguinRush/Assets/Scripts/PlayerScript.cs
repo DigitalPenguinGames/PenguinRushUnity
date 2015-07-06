@@ -26,8 +26,18 @@ public class PlayerScript : MonoBehaviour {
 		transform.position = center;
 	}
 
+	void OnDestroy() {
+		transform.parent.gameObject.AddComponent<EndGameScript>();
+	}
+
 	// Update is called once per frame
 	void Update () {
+		// Is dead?
+		//print("trnas " + transform.position.x + " bounds " + GetComponent<Renderer>().bounds.size.x + " screen " + Screen.width);
+		if (Mathf.Abs( transform.position.x) - GetComponent<Renderer>().bounds.size.x/2 >  19f/2) {
+			Destroy(gameObject);
+		}
+		// jump!
 		if (lastJump == dir.none) {
 			int inputY = 0;
 			if (Input.GetAxis("Vertical") > 0) {

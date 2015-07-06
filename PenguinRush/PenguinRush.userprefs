@@ -1,7 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MenuScript.cs">
     <Files>
+      <File FileName="Assets\Scripts\MenuScript.cs" Line="10" Column="20" />
       <File FileName="Assets\Scripts\PlayerScript.cs" Line="68" Column="83" />
       <File FileName="Assets\Scripts\AutoMoveCollisionable.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\InfiniteMovement.cs" Line="1" Column="1" />
