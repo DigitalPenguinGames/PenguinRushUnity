@@ -12,7 +12,8 @@ public class PropsManager : MonoBehaviour {
 
 	private float next = 0;
 	private float sizeOfBoard = 19;
-	
+	private float speedFactor = 1;
+
 
 	// Update is called once per frame
 	void Update () {
@@ -22,13 +23,18 @@ public class PropsManager : MonoBehaviour {
 			GameObject instance = Instantiate(props[Random.Range(0,props.Length)],pos, Quaternion.identity) as GameObject;
 			float x = sizeOfBoard/2 + instance.GetComponent<SpriteRenderer>().sprite.bounds.size.x/2;
 			instance.transform.Translate(new Vector3(x,0,0));
-			float s = Random.Range(speed.x, speed.y)/100f;
+			float s = speedFactor * Random.Range(speed.x, speed.y)/100f;
 			instance.GetComponent<AutoMoveNoCollisionable>().setSpeed(
 				new Vector2(-s,0f)
 			);
 			instance.transform.SetParent(parent.transform);
 			next = Random.Range(time.x, time.y)/100;
-			Destroy(instance,(instance.GetComponent<SpriteRenderer>().bounds.size.x + sizeOfBoard)/s	);
+			Destroy(instance,(instance.GetComponent<SpriteRenderer>().bounds.size.x + sizeOfBoard)/s);
 		}
 	}
+
+	public void setSpeedFactor(float factor) {
+		speedFactor = factor;
+	}
+
 }

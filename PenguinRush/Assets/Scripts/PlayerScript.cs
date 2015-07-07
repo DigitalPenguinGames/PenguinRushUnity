@@ -2,6 +2,8 @@
 
 public class PlayerScript : MonoBehaviour {
 
+	public GameObject scripts;
+
 	public float jumptime = 0.4f;
 	public float dist = 4.5f;
 	public Vector2 center = new Vector2(-7,-0.15f);
@@ -27,7 +29,7 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void OnDestroy() {
-		transform.parent.gameObject.AddComponent<EndGameScript>();
+		scripts.AddComponent<EndGameScript>();
 	}
 
 	// Update is called once per frame

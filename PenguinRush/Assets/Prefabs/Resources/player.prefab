@@ -12,6 +12,7 @@ GameObject:
   - 50: {fileID: 5097748}
   - 114: {fileID: 11481308}
   - 60: {fileID: 6084998}
+  - 95: {fileID: 9586860}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.177372, y: -.730689645, z: 0}
+  m_LocalPosition: {x: -7, y: -.150000006, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,6 +102,23 @@ PolygonCollider2D:
       - {x: .222499996, y: -.307500005}
       - {x: .337500006, y: -.217500001}
       - {x: .372500002, y: -.122500002}
+--- !u!95 &9586860
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185478}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ab46d676bce35424ea370893ec7427ac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11481308
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c8bb8a6ffb7c344687c60aa2a9d3a58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scripts: {fileID: 0}
   jumptime: .400000006
   dist: 4
   center: {x: -7, y: -.150000006}
