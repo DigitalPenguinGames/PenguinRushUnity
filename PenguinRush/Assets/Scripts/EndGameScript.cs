@@ -6,6 +6,7 @@ public class EndGameScript : MonoBehaviour {
 	void Awake() {
 		GetComponentInParent<ObstacleManager>().setFinished(true);
 		GetComponentInParent<Timer>().stop();
+		GetComponentInParent<Timer>().saveScore();
 	}
 
 	void OnGUI() {

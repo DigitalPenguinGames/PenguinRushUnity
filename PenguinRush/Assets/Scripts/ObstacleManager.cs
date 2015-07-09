@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ObstacleManager : MonoBehaviour {
 
+	public GameObject[] Background;
 	public GameObject[] props;
 	public GameObject parent;
 	public GameObject player;
@@ -14,13 +15,22 @@ public class ObstacleManager : MonoBehaviour {
 	private float next = 0;
 	private float sizeOfBoard = 19;
 	private float speedFactor = 1;
-	
+	private bool finished = false;
 	
 	// Update is called once per frame
 	void Update () {
 		next -= Time.deltaTime;
 		if (next < 0) { // Spawn a new fish
-			speedFactor += 0.05;
+			if (!finished) {
+				speedFactor += 0.05f;
+				// speed up the background
+				foreach ( GameObject g in Background) 
+					g.GetComponent<InfiniteMovement>().setSpeed(1+speedFactor);
+				
+				// speed up the fishes
+				gameObject.GetComponent<PropsManager>().setSpeedFactor(speedFactor);
+			}
+
 			Vector3 pos = new Vector3(0,Random.Range(position.x,position.y),0);
 			GameObject instance = Instantiate(props[Random.Range(0,props.Length)],pos, Quaternion.identity) as GameObject;
 			float x = sizeOfBoard/2 + instance.GetComponent<SpriteRenderer>().sprite.bounds.size.x/2;
@@ -36,5 +46,14 @@ public class ObstacleManager : MonoBehaviour {
 			Destroy(instance,(instance.GetComponent<SpriteRenderer>().bounds.size.x + sizeOfBoard)/s +2	);
 			if ( player != null )player.GetComponent<PlayerScript>().setObstacleSpeed(s);
 		}
+	}
+
+	public void setFinished(bool f) {
+		finished = f;
+	}
+
+	public void restart() {
+		finished = false;
+		speedFactor = 1;
 	}
 }
