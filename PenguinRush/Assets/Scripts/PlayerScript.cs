@@ -80,6 +80,15 @@ public class PlayerScript : MonoBehaviour {
 				movement.y *= inputY;
 			}
 		}
+
+		//PARTICLES STUFFS
+		if(   transform.position.y > center.y+0.8 && movement.y < 0
+		   || transform.position.y < center.y-0.8 && movement.y > 0 ){
+			GetComponentInChildren<ParticleSystem>().emissionRate = 0;
+		}
+		else {
+			GetComponentInChildren<ParticleSystem>().emissionRate = 80;
+		}
 	}
 
 	void FixedUpdate() {
@@ -111,8 +120,9 @@ public class PlayerScript : MonoBehaviour {
 			(rotationForce * angularDirection * 0.5f) + 
 			GetComponent<Rigidbody2D>().angularVelocity*0.5f;
 			//+ (jumpRotation - auxRotation) * 20;
+		
 	}
-
+	
 	private float unityRotation(float degrees) {
 		if (degrees < 180) return degrees/180;
 		else return -(1 - degrees/180);
