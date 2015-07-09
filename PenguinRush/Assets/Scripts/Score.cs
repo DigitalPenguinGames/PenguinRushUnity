@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class Timer : MonoBehaviour {
+public class Score : MonoBehaviour {
 
 	public float factor = 1;
 	public Text score;
