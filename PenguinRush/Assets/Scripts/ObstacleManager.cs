@@ -7,6 +7,7 @@ public class ObstacleManager : MonoBehaviour {
 	public GameObject[] props;
 	public GameObject parent;
 	public GameObject player;
+
 	public Vector2 position = new Vector2 (0f, 0f); // Y position at spawn
 	public Vector2 time = new Vector2(100,200); // centiseconds
 	public Vector2 speed = new Vector2(400,400); //centiseconds 
@@ -16,19 +17,23 @@ public class ObstacleManager : MonoBehaviour {
 	private float sizeOfBoard = 19;
 	private float speedFactor = 1;
 	private bool finished = false;
+	private bool run = false;
 	
 	// Update is called once per frame
 	void Update () {
+		if (!run) return;
 		next -= Time.deltaTime;
 		if (next < 0) { // Spawn a new fish
 			if (!finished) {
-				speedFactor += 0.05f;
 				// speed up the background
 				foreach ( GameObject g in Background) 
-					g.GetComponent<InfiniteMovement>().setSpeed(1+speedFactor);
-				
+					g.GetComponent<InfiniteMovement>().setSpeed(speedFactor);
+
+
 				// speed up the fishes
 				gameObject.GetComponent<PropsManager>().setSpeedFactor(speedFactor);
+				
+				speedFactor += 0.05f;
 			}
 
 			Vector3 pos = new Vector3(0,Random.Range(position.x,position.y),0);
@@ -51,9 +56,16 @@ public class ObstacleManager : MonoBehaviour {
 	public void setFinished(bool f) {
 		finished = f;
 	}
-
-	public void restart() {
+	
+	public void start() {
+		run = true;
 		finished = false;
 		speedFactor = 1;
+		next = 0;
 	}
+
+	public void stop() {
+		run = false;
+	}
+
 }
