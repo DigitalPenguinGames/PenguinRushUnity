@@ -1,18 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Timer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CountTimerScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\Timer.cs" Line="19" Column="35" />
+      <File FileName="Assets\Scripts\Score.cs" Line="44" Column="3" />
       <File FileName="Assets\Scripts\MenuScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PlayerScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerScript.cs" Line="26" Column="35" />
       <File FileName="Assets\Scripts\AutoMoveCollisionable.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\InfiniteMovement.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\AutoMoveNoCollisionable.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ObstacleManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ObstacleManager.cs" Line="31" Column="5" />
       <File FileName="Assets\Scripts\PropsManager.cs" Line="1" Column="1" />
-      <File FileName="..\..\..\Space Tongue\Assets\Scripts\LevelManager.cs" Line="1" Column="1" />
-      <File FileName="..\..\..\2DrOguelIke\Assets\Completed\Scripts\BoardManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EndGameScript.cs" Line="9" Column="45" />
+      <File FileName="Assets\Scripts\EndGameScript.cs" Line="22" Column="47" />
+      <File FileName="Assets\Scripts\CountTimerScript.cs" Line="34" Column="39" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

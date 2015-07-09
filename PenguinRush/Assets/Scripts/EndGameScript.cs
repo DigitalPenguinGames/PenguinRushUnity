@@ -19,7 +19,10 @@ public class EndGameScript : MonoBehaviour {
 				buttonWidth,
 				buttonHeight
 				),"Restart")) {
-			Application.LoadLevel("Stage1");
+			GetComponentInParent<Score>().resetScore();
+			spawnPlayer(); 
+			GetComponentInParent<CountTimerScript>().restart();
+
 		}
 		if (GUI.Button(new Rect(
 			Screen.width/2 - (buttonWidth/2),
@@ -31,5 +34,14 @@ public class EndGameScript : MonoBehaviour {
 
 		}
 		
+	}
+
+	void spawnPlayer() {
+		GameObject instance = Instantiate(Resources.Load("player"), new Vector3(0,0,0), Quaternion.identity) as GameObject;
+		instance.transform.SetParent(GameObject.FindWithTag("Middleground").transform);
+		instance.GetComponent<PlayerScript>().setCanDie(false);
+		instance.tag = "Player";
+		instance.GetComponent<PlayerScript>().scripts = gameObject;
+		instance.GetComponent<PolygonCollider2D>().enabled = false;
 	}
 }

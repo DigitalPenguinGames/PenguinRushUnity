@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AutoMoveCollisionable.cs" />
      <Compile Include="Assets\Scripts\AutoMoveNoCollisionable.cs" />
+     <Compile Include="Assets\Scripts\CountTimerScript.cs" />
      <Compile Include="Assets\Scripts\EndGameScript.cs" />
      <Compile Include="Assets\Scripts\InfiniteMovement.cs" />
      <Compile Include="Assets\Scripts\MenuScript.cs" />

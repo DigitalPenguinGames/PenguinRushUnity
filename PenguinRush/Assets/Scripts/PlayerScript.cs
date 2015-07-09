@@ -11,7 +11,7 @@ public class PlayerScript : MonoBehaviour {
 	public float rotationForce = 1;
 
 	private Vector2 movement = new Vector2(0,0);
-	private float gravity = 0f;
+	private float gravity = -25f;
 
 	private enum dir {
 		up, down, none
@@ -20,12 +20,10 @@ public class PlayerScript : MonoBehaviour {
 
 	private float obstacleSpeed=0;
 
-	public void setObstacleSpeed(float s) {
-		obstacleSpeed = s;
-	}
+	private bool canDie = false;
 
 	void Awake() {
-		transform.position = center;
+		transform.position = new Vector2(center.x - 3 , center.y);
 	}
 
 	void OnDestroy() {
@@ -36,7 +34,7 @@ public class PlayerScript : MonoBehaviour {
 	void Update () {
 		// Is dead?
 		//print("trnas " + transform.position.x + " bounds " + GetComponent<Renderer>().bounds.size.x + " screen " + Screen.width);
-		if (Mathf.Abs( transform.position.x) - GetComponent<Renderer>().bounds.size.x/2 >  19f/2) {
+		if (canDie && Mathf.Abs( transform.position.x) - GetComponent<Renderer>().bounds.size.x/2 >  19f/2) {
 			Destroy(gameObject);
 		}
 
@@ -116,5 +114,13 @@ public class PlayerScript : MonoBehaviour {
 	private float unityRotation(float degrees) {
 		if (degrees < 180) return degrees/180;
 		else return -(1 - degrees/180);
+	}
+
+	public void setObstacleSpeed(float s) {
+		obstacleSpeed = s;
+	}
+
+	public void setCanDie(bool b) {
+		canDie = b;
 	}
 }
