@@ -39,14 +39,37 @@ public class PlayerScript : MonoBehaviour {
 		if (Mathf.Abs( transform.position.x) - GetComponent<Renderer>().bounds.size.x/2 >  19f/2) {
 			Destroy(gameObject);
 		}
+
 		// jump!
 		if (lastJump == dir.none) {
 			int inputY = 0;
-			if (Input.GetAxis("Vertical") > 0) {
+			float verticalInput = 0.0f;
+
+			#if UNITY_STANDALONE || UNITY_WEBPLAYER
+			verticalInput = Input.GetAxis("Vertical");
+			if (Input.GetButton("Fire1")) {
+				verticalInput = 1;
+			}
+			if (Input.GetButton("Fire2")) {
+				verticalInput = -1;
+			}
+			#elif UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
+			if(Input.touchCount > 0) {
+				Touch myTouch = Input.touches[0];
+				
+				if(myTouch.TouchPhase == TouchPhase.Began){
+					float position = myTouch.position.y;
+					if(position >= Screen.height/2) verticalInput = 1;
+					else verticalInput = -1;
+				}
+			}
+			#endif
+
+			if (verticalInput > 0) {
 				inputY = 1;
 				lastJump = dir.up;
 			}
-			else if (Input.GetAxis("Vertical") < 0) {
+			else if (verticalInput < 0) {
 				inputY = -1;
 				lastJump = dir.down;
 			}
