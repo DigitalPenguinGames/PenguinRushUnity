@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{1F99E378-EDFB-621F-7321-485F37FBE5A4}") = "PenguinRush", "Assembly-CSharp-vs.csproj", "{5AC94FFA-F21E-54BA-A5C7-E0A937AC2594}"
 EndProject
+Project("{1F99E378-EDFB-621F-7321-485F37FBE5A4}") = "PenguinRush", "Assembly-CSharp-Editor-vs.csproj", "{62EF46B5-FA15-CE50-0655-601BFC4C5498}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,11 +15,15 @@ Global
 		{5AC94FFA-F21E-54BA-A5C7-E0A937AC2594}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AC94FFA-F21E-54BA-A5C7-E0A937AC2594}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AC94FFA-F21E-54BA-A5C7-E0A937AC2594}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62EF46B5-FA15-CE50-0655-601BFC4C5498}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62EF46B5-FA15-CE50-0655-601BFC4C5498}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62EF46B5-FA15-CE50-0655-601BFC4C5498}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62EF46B5-FA15-CE50-0655-601BFC4C5498}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																				GlobalSection(MonoDevelopProperties) = preSolution
+																																					GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

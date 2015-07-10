@@ -49,7 +49,7 @@ public class ObstacleManager : MonoBehaviour {
 			instance.transform.SetParent(parent.transform);
 			next = Random.Range(time.x,time.y)/100;
 			Destroy(instance,(instance.GetComponent<SpriteRenderer>().bounds.size.x + sizeOfBoard)/s +2	);
-			if ( player != null )player.GetComponent<PlayerScript>().setObstacleSpeed(s);
+			if ( player != null ) player.GetComponent<PlayerScript>().setObstacleSpeed(s);
 		}
 	}
 

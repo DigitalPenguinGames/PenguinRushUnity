@@ -18,7 +18,7 @@ public class PlayerScript : MonoBehaviour {
 	};
 	private dir lastJump = dir.none;
 
-	private float obstacleSpeed=0;
+	private float obstacleSpeed = 3;
 
 	private bool canDie = false;
 
@@ -27,7 +27,7 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void OnDestroy() {
-		scripts.AddComponent<EndGameScript>();
+		if (scripts != null) scripts.AddComponent<EndGameScript>();
 	}
 
 	// Update is called once per frame
@@ -114,10 +114,11 @@ public class PlayerScript : MonoBehaviour {
 		float jumpRotation = 180 - Mathf.Rad2Deg * Mathf.Atan2(movement.y,(movement.x-obstacleSpeed));
 		float auxRotation = transform.rotation.eulerAngles.z;
 		//jumpRotation = unityRotation(jumpRotation-auxRotation);
-		GetComponent<Rigidbody2D>().angularVelocity = 
+		/*GetComponent<Rigidbody2D>().angularVelocity = 
 			(rotationForce * angularDirection * 0.5f) + 
-			GetComponent<Rigidbody2D>().angularVelocity*0.5f;
+			GetComponent<Rigidbody2D>().angularVelocity*0.5f;*/
 			//+ (jumpRotation - auxRotation) * 20;
+		transform.Rotate(new Vector3(0,0,jumpRotation-auxRotation));
 		
 	}
 	

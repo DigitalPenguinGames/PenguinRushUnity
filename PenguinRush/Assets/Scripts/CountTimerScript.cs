@@ -13,6 +13,8 @@ public class CountTimerScript : MonoBehaviour {
 
 	private bool running = true;
 
+	private GameObject instance;
+
 	void Start () {
 		restart();
 	}
@@ -34,16 +36,28 @@ public class CountTimerScript : MonoBehaviour {
 		GetComponentInParent<Score>().startScore();
 		GetComponentInParent<ObstacleManager>().start();
 		running = false;
-		GameObject.FindWithTag("Player").GetComponent<PlayerScript>().setCanDie(true);
-		GameObject.FindWithTag("Player").GetComponent<PolygonCollider2D>().enabled = true;
+		instance.GetComponent<PolygonCollider2D>().enabled = true;
+		instance.GetComponent<PlayerScript>().setCanDie(true);
+		instance = null;
 	}
 
 	public void restart() {
+		spawnPlayer();
 		GetComponentInParent<ObstacleManager>().stop();
 		if (GetComponentInParent<EndGameScript>() != null) Destroy(GetComponentInParent<EndGameScript>());
 		timer = numbers;
 		ttimer.text = (0.9f+timer).ToString("F0");
 		elapse = seconds;
 		running = true;
+	}
+
+	void spawnPlayer() {
+		instance = Instantiate(Resources.Load("player"), new Vector3(0,0,0), Quaternion.identity) as GameObject;
+		instance.transform.SetParent(GameObject.FindWithTag("Middleground").transform);
+		instance.GetComponent<PlayerScript>().setCanDie(false);
+		instance.tag = "Player";
+		instance.GetComponent<PlayerScript>().scripts = gameObject;
+		instance.GetComponent<PolygonCollider2D>().enabled = false;
+		GetComponentInParent<ObstacleManager>().player = instance;
 	}
 }
