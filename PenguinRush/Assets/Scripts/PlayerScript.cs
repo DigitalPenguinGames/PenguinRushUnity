@@ -18,7 +18,7 @@ public class PlayerScript : MonoBehaviour {
 	};
 	private dir lastJump = dir.none;
 
-	private float obstacleSpeed = 3;
+	private float obstacleSpeed = 6;
 
 	private bool canDie = false;
 
@@ -111,14 +111,18 @@ public class PlayerScript : MonoBehaviour {
 		else angularDirection = Mathf.Min (-0.2f, Mathf.Max( -0.6f, angularDirection));
 		angularDirection = - Mathf.Pow(angularDirection*100,2) * Mathf.Sign(angularDirection);
 		// jump Rotation
-		float jumpRotation = 180 - Mathf.Rad2Deg * Mathf.Atan2(movement.y,(movement.x-obstacleSpeed));
+		float jumpRotation = 360 + 180 - Mathf.Rad2Deg * Mathf.Atan2(movement.y,(movement.x-obstacleSpeed));
 		float auxRotation = transform.rotation.eulerAngles.z;
 		//jumpRotation = unityRotation(jumpRotation-auxRotation);
 		/*GetComponent<Rigidbody2D>().angularVelocity = 
 			(rotationForce * angularDirection * 0.5f) + 
 			GetComponent<Rigidbody2D>().angularVelocity*0.5f;*/
 			//+ (jumpRotation - auxRotation) * 20;
-		transform.Rotate(new Vector3(0,0,jumpRotation-auxRotation));
+		float rotation = jumpRotation-auxRotation;
+		//transform.Rotate(new Vector3(0,0,rotation));
+		transform.rotation = Quaternion.Euler(new Vector3(0,0,jumpRotation));
+		print(jumpRotation+" "+rotation);
+
 		
 	}
 	

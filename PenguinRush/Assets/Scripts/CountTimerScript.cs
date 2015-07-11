@@ -24,6 +24,8 @@ public class CountTimerScript : MonoBehaviour {
 		if (!running) return;
 		elapse -= Time.deltaTime;
 		timer = elapse*(numbers/seconds);
+		float factor = 2*(Mathf.Min(0.7f,timer - Mathf.Floor(timer))+0.3f);
+		ttimer.transform.localScale = new Vector3(factor,factor, 1);// Mathf.FloorToInt(fontsize * factor);
 		if (timer < -1) {
 			ttimer.text = "";
 			startThings();
