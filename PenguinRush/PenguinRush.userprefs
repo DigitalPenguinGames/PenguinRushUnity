@@ -1,11 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EndGameScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PauseScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayerScript.cs" Line="120" Column="42" />
-      <File FileName="Assets\Scripts\CountTimerScript.cs" Line="61" Column="61" />
-      <File FileName="Assets\Scripts\EndGameScript.cs" Line="22" Column="47" />
-      <File FileName="Assets\Scripts\ObstacleManager.cs" Line="9" Column="27" />
+      <File FileName="Assets\Scripts\MenuScript.cs" Line="6" Column="30" />
+      <File FileName="Assets\Scripts\CountTimerScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EndGameScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ObstacleManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Score.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PauseScript.cs" Line="8" Column="7" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
