@@ -53,6 +53,8 @@
      <Compile Include="Assets\Scripts\InfiniteMovement.cs" />
      <Compile Include="Assets\Scripts\MenuScript.cs" />
      <Compile Include="Assets\Scripts\ObstacleManager.cs" />
+     <Compile Include="Assets\Scripts\PauseMenu.cs" />
+     <Compile Include="Assets\Scripts\PauseScript.cs" />
      <Compile Include="Assets\Scripts\PlayerScript.cs" />
      <Compile Include="Assets\Scripts\PropsManager.cs" />
      <Compile Include="Assets\Scripts\Score.cs" />
