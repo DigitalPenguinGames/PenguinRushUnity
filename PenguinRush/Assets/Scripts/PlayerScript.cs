@@ -55,7 +55,7 @@ public class PlayerScript : MonoBehaviour {
 			if(Input.touchCount > 0) {
 				Touch myTouch = Input.touches[0];
 				
-				if(myTouch.TouchPhase == TouchPhase.Began){
+				if(myTouch.phase == TouchPhase.Began){
 					float position = myTouch.position.y;
 					if(position >= Screen.height/2) verticalInput = 1;
 					else verticalInput = -1;
@@ -110,28 +110,17 @@ public class PlayerScript : MonoBehaviour {
 		if (transform.rotation.z > 0) angularDirection = Mathf.Max (0.2f, Mathf.Min(0.6f ,angularDirection));
 		else angularDirection = Mathf.Min (-0.2f, Mathf.Max( -0.6f, angularDirection));
 		angularDirection = - Mathf.Pow(angularDirection*100,2) * Mathf.Sign(angularDirection);
+
 		// jump Rotation
 		float distance = (center.y - transform.position.y);
 		if(distance < 0) distance *= -1;
 		float jumpRotation = 360 + 180 - Mathf.Rad2Deg * Mathf.Atan2(movement.y,(movement.x-obstacleSpeed));
 		float auxRotation = transform.rotation.eulerAngles.z;
-		//print("===============================> "+(jumpRotation%360));
 		if(distance < 0.05 && (((jumpRotation%360) < 10) || ((jumpRotation%360) > 350))){
-			//print ("I'M_NOT_BOUNCING");
-			jumpRotation = 0;
-			auxRotation = 0;
+			jumpRotation = transform.rotation.z*-1;
 		}
-		//jumpRotation = unityRotation(jumpRotation-auxRotation);
-		/*GetComponent<Rigidbody2D>().angularVelocity = 
-			(rotationForce * angularDirection * 0.5f) + 
-			GetComponent<Rigidbody2D>().angularVelocity*0.5f;*/
-			//+ (jumpRotation - auxRotation) * 20;
-		float rotation = jumpRotation-auxRotation;
-		//transform.Rotate(new Vector3(0,0,rotation));
 		transform.rotation = Quaternion.Euler(new Vector3(0,0,jumpRotation));
 		//print(jumpRotation+" ------------- "+rotation);
-
-		
 	}
 	
 	private float unityRotation(float degrees) {
