@@ -57,7 +57,7 @@ public class PlayerScript : MonoBehaviour {
 				
 				if(myTouch.phase == TouchPhase.Began){
 					float position = myTouch.position.y;
-					if(position >= Screen.height/2) verticalInput = 1;
+					if(position >= Screen.width/2) verticalInput = 1;
 					else verticalInput = -1;
 				}
 			}
@@ -111,11 +111,11 @@ public class PlayerScript : MonoBehaviour {
 		else angularDirection = Mathf.Min (-0.2f, Mathf.Max( -0.6f, angularDirection));
 		angularDirection = - Mathf.Pow(angularDirection*100,2) * Mathf.Sign(angularDirection);
 
+
 		// jump Rotation
 		float distance = (center.y - transform.position.y);
 		if(distance < 0) distance *= -1;
 		float jumpRotation = 360 + 180 - Mathf.Rad2Deg * Mathf.Atan2(movement.y,(movement.x-obstacleSpeed));
-		float auxRotation = transform.rotation.eulerAngles.z;
 		if(distance < 0.05 && (((jumpRotation%360) < 10) || ((jumpRotation%360) > 350))){
 			jumpRotation = transform.rotation.z*-1;
 		}

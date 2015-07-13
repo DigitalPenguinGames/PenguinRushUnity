@@ -4,8 +4,10 @@ using System.Collections;
 public class PauseMenu : MonoBehaviour {
 
 	void OnGUI() {
-		const int buttonWidth = 83;
-		const int buttonHeight = 30;
+//		const int buttonWidth = 83;
+//		const int buttonHeight = 30;
+		float buttonHeight = Screen.height * 1/10;
+		float buttonWidth = buttonHeight * 5;
 		
 		if (GUI.Button(new Rect(
 			Screen.width/2 - (buttonWidth/2),

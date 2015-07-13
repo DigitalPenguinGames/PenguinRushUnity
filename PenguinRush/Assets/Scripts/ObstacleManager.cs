@@ -56,6 +56,10 @@ public class ObstacleManager : MonoBehaviour {
 	public void setFinished(bool f) {
 		finished = f;
 	}
+
+	public bool getFinished(){
+		return finished;
+	}
 	
 	public void start() {
 		run = true;
