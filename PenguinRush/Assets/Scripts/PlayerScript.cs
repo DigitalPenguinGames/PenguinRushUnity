@@ -96,7 +96,7 @@ public class PlayerScript : MonoBehaviour {
 		// Crossing the middle
 		if (transform.position.y > center.y && transform.position.y + movement.y*Time.deltaTime < center.y
 		    || transform.position.y < center.y && transform.position.y + movement.y*Time.deltaTime > center.y) {
-			movement.y *= 0.5f;
+			movement.y *= 0.6f;
 			lastJump = dir.none;
 		}
 		// Horizontal Speed
@@ -113,11 +113,10 @@ public class PlayerScript : MonoBehaviour {
 
 
 		// jump Rotation
-		float distance = (center.y - transform.position.y);
-		if(distance < 0) distance *= -1;
+		float distance = Mathf.Abs(center.y - transform.position.y);
 		float jumpRotation = 360 + 180 - Mathf.Rad2Deg * Mathf.Atan2(movement.y,(movement.x-obstacleSpeed));
 		if(distance < 0.05 && (((jumpRotation%360) < 10) || ((jumpRotation%360) > 350))){
-			jumpRotation = transform.rotation.z*-1;
+			jumpRotation = 0;
 		}
 		transform.rotation = Quaternion.Euler(new Vector3(0,0,jumpRotation));
 		//print(jumpRotation+" ------------- "+rotation);

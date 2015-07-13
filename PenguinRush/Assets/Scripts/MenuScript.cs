@@ -3,10 +3,15 @@
 public class MenuScript : MonoBehaviour {
 
 	void OnGUI() {
-		//const int buttonWidth = 120;
-		//const int buttonHeight = 30;
-		float buttonHeight = Screen.height * 1/10;
-		float buttonWidth = buttonHeight * 5;
+#if UNITY_STANDALONE || UNITY_WEBPLAYER
+		const int buttonWidth = 120;
+		const int buttonHeight = 30;
+		const int offset = buttonHeight + 20;
+#elif UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
+		const float buttonHeight = Screen.height * 1/10;
+		const float buttonWidth = buttonHeight * 5;
+		const float RectOffset = buttonHeight;
+#endif
 		if (GUI.Button(new Rect(
 				Screen.width*0.5f/3 - (buttonWidth/2),
 				Screen.height*1.8f/3 - (buttonHeight/2),
@@ -17,7 +22,7 @@ public class MenuScript : MonoBehaviour {
 		}
 		if (GUI.Button(new Rect(
 			Screen.width*0.5f/3 - (buttonWidth/2),
-			Screen.height*1.8f/3 - (buttonHeight/2) + buttonHeight,
+			Screen.height*1.8f/3 - (buttonHeight/2) + offset,
 			buttonWidth,
 			buttonHeight
 			),"Reset High Scores!")) {
@@ -25,7 +30,7 @@ public class MenuScript : MonoBehaviour {
 		}
 		if (GUI.Button(new Rect(
 			Screen.width*0.5f/3 - (buttonWidth/2),
-			Screen.height*1.8f/3 - (buttonHeight/2) + buttonHeight + buttonHeight,
+			Screen.height*1.8f/3 - (buttonHeight/2) + 2 * offset,
 			buttonWidth,
 			buttonHeight
 			),"Exit!")) {
