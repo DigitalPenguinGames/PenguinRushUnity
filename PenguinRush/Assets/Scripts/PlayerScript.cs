@@ -16,6 +16,8 @@ public class PlayerScript : MonoBehaviour {
 	private enum dir {
 		up, down, none
 	};
+
+	private bool cutGravity = false;
 	private dir lastJump = dir.none;
 
 	private float obstacleSpeed = 6;
@@ -71,11 +73,14 @@ public class PlayerScript : MonoBehaviour {
 				inputY = -1;
 				lastJump = dir.down;
 			}
-			if (inputY != 0) {
-				float factor = 2f/(jumptime * jumptime);
-				gravity = - factor * ((dist + center.y) - transform.position.y);
-				movement.y = - gravity * jumptime;
-				movement.y *= inputY;
+			if (inputY != 0) { 
+				// xf = 1/2 a * tº2 + v*t + xi    xi -> centre + dist   xf -> centre.y +- pos.y
+				// a = (xf - xi)* factor    factor = 1/ (1/2*t_2)
+				float factor = 2f/(jumptime * jumptime); //inversa de   1/2 * temps al quadrat
+				gravity = factor * (transform.position.y - (center.y + inputY*dist));
+				movement.y = - gravity * jumptime;	
+				gravity *= inputY;
+				cutGravity = false;
 			}
 		}
 
@@ -90,15 +95,24 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
+
 		// Gravity
-		if (transform.position.y > center.y) movement.y += gravity*Time.deltaTime;
-		else movement.y -= gravity*Time.deltaTime;
+		if(lastJump == dir.up) movement.y += gravity*Time.fixedDeltaTime;
+		else if(lastJump == dir.down) movement.y -= gravity*Time.fixedDeltaTime;
+		else if (transform.position.y > center.y) movement.y += gravity*Time.fixedDeltaTime;
+		else movement.y -= gravity*Time.fixedDeltaTime;
+
 		// Crossing the middle
-		if (transform.position.y > center.y && transform.position.y + movement.y*Time.deltaTime < center.y
-		    || transform.position.y < center.y && transform.position.y + movement.y*Time.deltaTime > center.y) {
-			movement.y *= 0.6f;
+		if (transform.position.y > center.y && transform.position.y + movement.y*Time.deltaTime < center.y && lastJump == dir.up
+		    || transform.position.y < center.y && transform.position.y + movement.y*Time.deltaTime > center.y && lastJump == dir.down) {
 			lastJump = dir.none;
+			cutGravity = true;
 		}
+		if (transform.position.y > center.y && transform.position.y + movement.y*Time.deltaTime < center.y && cutGravity
+		    || transform.position.y < center.y && transform.position.y + movement.y*Time.deltaTime > center.y && cutGravity) {
+			movement.y *= 0.6f;
+		}
+
 		// Horizontal Speed
 		movement.x = center.x - transform.position.x;
 		// Speed

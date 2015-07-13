@@ -20,7 +20,7 @@ public class OptionsScript : MonoBehaviour {
 		#elif UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
 		float buttonHeight = Screen.height * 1/10;
 		float buttonWidth = buttonHeight * 5;
-		float RectOffset = buttonHeight;
+		float offset = buttonHeight;
 		#endif
 
 		showScores = (GUI.Toggle(new Rect(
@@ -31,7 +31,7 @@ public class OptionsScript : MonoBehaviour {
 			),showScores, ""));
 		PlayerPrefs.SetInt("showScores",showScores ? 1 : 0);
 		GUI.TextArea(new Rect(
-			Screen.width*0.5f/3 - (buttonWidth/2) + buttonHeight,
+			Screen.width*0.5f/3 - (buttonWidth/2) + offset,
 			Screen.height*1.8f/3 - (buttonHeight/2),
 			buttonWidth,
 			buttonHeight*1.2f
