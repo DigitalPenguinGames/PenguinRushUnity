@@ -11,12 +11,19 @@ public class Score : MonoBehaviour {
 	private float time = 0;
 	private bool run = false;
 	private float highscore = 0;
+	private bool visible;
 
 	// Use this for initialization
 	void Start () {
-		score.text = "Score : 0";
 		highscore = PlayerPrefs.GetFloat("HighScore");
+		visible = PlayerPrefs.GetInt("showScores",1) == 1;
+		score.text = "Score : 0";
 		highscoreT.text = "High Score : " + highscore.ToString("F0");
+		if (!visible) {
+			score.enabled = false;
+			highscoreT.enabled = false;
+		}
+
 	}
 	
 	// Update is called once per frame
@@ -37,6 +44,7 @@ public class Score : MonoBehaviour {
 
 	public void startScore() {
 		run = true;
+		enableTexFields(visible);
 	}
 
 	public void resetScore() {
@@ -45,5 +53,10 @@ public class Score : MonoBehaviour {
 
 	public void saveScore() {
 		PlayerPrefs.SetFloat("HighScore",highscore);
+	}
+
+	public void enableTexFields(bool b) {
+		score.enabled = b;
+		highscoreT.enabled = b;
 	}
 }
