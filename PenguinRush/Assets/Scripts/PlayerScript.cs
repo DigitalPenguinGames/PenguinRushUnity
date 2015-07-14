@@ -24,8 +24,15 @@ public class PlayerScript : MonoBehaviour {
 
 	private bool canDie = false;
 
+	private string up;
+	private string down;
+
 	void Awake() {
 		transform.position = new Vector2(center.x - 3 , center.y);
+		#if UNITY_STANDALONE || UNITY_WEBPLAYER
+		up = PlayerPrefs.GetString("keyUp","up");
+		down = PlayerPrefs.GetString("keyDown","down");
+		#endif
 	}
 
 	void OnDestroy() {
@@ -46,11 +53,13 @@ public class PlayerScript : MonoBehaviour {
 			float verticalInput = 0.0f;
 
 			#if UNITY_STANDALONE || UNITY_WEBPLAYER
-			verticalInput = Input.GetAxis("Vertical");
-			if (Input.GetButton("Fire1")) {
+			if (Input.GetKey(up)) verticalInput = 1;
+			else if (Input.GetKey(down)) verticalInput = -1;
+			//verticalInput = Input.GetAxis("Vertical");
+			else if (Input.GetButton("Fire1")) {
 				verticalInput = 1;
 			}
-			if (Input.GetButton("Fire2")) {
+			else if (Input.GetButton("Fire2")) {
 				verticalInput = -1;
 			}
 			#elif UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
@@ -119,11 +128,13 @@ public class PlayerScript : MonoBehaviour {
 		GetComponent<Rigidbody2D>().velocity = movement;
 
 		// Agular
-		float angularDirection;
+		/*float angularDirection;
 		angularDirection = transform.rotation.z;
 		if (transform.rotation.z > 0) angularDirection = Mathf.Max (0.2f, Mathf.Min(0.6f ,angularDirection));
 		else angularDirection = Mathf.Min (-0.2f, Mathf.Max( -0.6f, angularDirection));
 		angularDirection = - Mathf.Pow(angularDirection*100,2) * Mathf.Sign(angularDirection);
+		*/
+
 
 
 		// jump Rotation
