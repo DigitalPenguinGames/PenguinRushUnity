@@ -15,11 +15,15 @@ public class CountTimerScript : MonoBehaviour {
 
 	private GameObject instance;
 	private float speedFactor;
+	// Tracking things
+	private int numberOfTries;
 
 	void Start () {
 		restart();
+		// Tracking things
+		numberOfTries = PlayerPrefs.GetInt("trackNumberOfTries",0);
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (!running) return;
@@ -45,6 +49,10 @@ public class CountTimerScript : MonoBehaviour {
 		instance.GetComponent<PolygonCollider2D>().enabled = true;
 		instance.GetComponent<PlayerScript>().setCanDie(true);
 		instance = null;
+
+		// Tracking things
+		++numberOfTries;
+		PlayerPrefs.SetInt("trackNumberOfTries",numberOfTries);
 	}
 
 	public void restart() {

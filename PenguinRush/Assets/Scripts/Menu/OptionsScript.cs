@@ -17,6 +17,7 @@ public class OptionsScript : MonoBehaviour {
 		int buttonHeight = buttonWidth/4;
 		int offset = Mathf.FloorToInt(buttonHeight*1.6f);
 		#elif UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
+		GUI.skin.button.fontSize = Screen.width/40;
 		float buttonHeight = Screen.height * 1/10;
 		float buttonWidth = buttonHeight * 5;
 		float offset = buttonHeight;
@@ -42,9 +43,8 @@ public class OptionsScript : MonoBehaviour {
 			Screen.height*1.8f/3 - (buttonHeight/2) + offset,
 			buttonWidth,
 			buttonHeight
-			),"Start!")) {
-			Application.LoadLevel("Stage1");
-
+			),"Reset High Scores")) {
+			PlayerPrefs.SetFloat("HighScore",0);
 		}
 		if (GUI.Button(new Rect(
 			Screen.width*0.5f/3 - (buttonWidth/2),

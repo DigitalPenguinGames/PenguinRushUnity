@@ -1,10 +1,19 @@
 ﻿using UnityEngine;
+using System.Collections;
 
-public class MenuScript : MonoBehaviour {
+public class StatsScript : MonoBehaviour {
 
+	private int numberOfTries;
+
+	// Use this for initialization
+	void Start () {
+		numberOfTries = PlayerPrefs.GetInt("trackNumberOfTries",0);
+	}
+	
 	void OnGUI() {
 		#if UNITY_STANDALONE || UNITY_WEBPLAYER
 		GUI.skin.button.fontSize = Screen.width/90;
+		GUI.skin.textArea.fontSize = Screen.width/90;
 		int buttonWidth = Screen.width/9;
 		int buttonHeight = buttonWidth/4;
 		int offset = Mathf.FloorToInt(buttonHeight*1.6f);
@@ -14,38 +23,31 @@ public class MenuScript : MonoBehaviour {
 		float buttonWidth = buttonHeight * 5;
 		float offset = buttonHeight;
 		#endif
-		if (GUI.Button(new Rect(
-				Screen.width*0.5f/3 - (buttonWidth/2),
-				Screen.height*1.8f/3 - (buttonHeight/2),
-				buttonWidth,
-				buttonHeight
-			),"Start!")) {
-			Application.LoadLevel("Stage1");
-		}
+		/*
+		GUI.TextArea(new Rect(
+			Screen.width*0.5f/3 - (buttonWidth/2) + buttonHeight * 0.6f,
+			Screen.height*1.8f/3 - (buttonHeight/2),
+			buttonWidth,
+			buttonHeight*1.2f
+			),"Show scores while playing?");
+		
+		
 		if (GUI.Button(new Rect(
 			Screen.width*0.5f/3 - (buttonWidth/2),
 			Screen.height*1.8f/3 - (buttonHeight/2) + offset,
 			buttonWidth,
 			buttonHeight
-			),"Options")) {
-			gameObject.AddComponent<OptionsScript>();
-			Destroy(this);
-		}
+			),"Reset High Scores")) {
+			PlayerPrefs.SetFloat("HighScore",0);
+		}*/
 		if (GUI.Button(new Rect(
-			Screen.width*0.5f/3 - (buttonWidth/2),
-			Screen.height*1.8f/3 - (buttonHeight/2) + 2 * offset,
-			buttonWidth,
-			buttonHeight
-			),"Stats")) {
-			gameObject.AddComponent<StatsScript>();
-			Destroy(this);
-		}if (GUI.Button(new Rect(
 			Screen.width*0.5f/3 - (buttonWidth/2),
 			Screen.height*1.8f/3 - (buttonHeight/2) + 3 * offset,
 			buttonWidth,
 			buttonHeight
-			),"Exit")) {
-			Application.Quit();
+			),"Reset High Scores")) {
+			gameObject.AddComponent<MenuScript>();
+			Destroy(this);
 		}
 	}
 }

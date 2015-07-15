@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour {
 		int buttonHeight = buttonWidth/4;
 		int offset = Mathf.FloorToInt(buttonHeight*1.6f);
 		#elif UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
+		GUI.skin.button.fontSize = Screen.width/40;
 		float buttonHeight = Screen.height * 1/10;
 		float buttonWidth = buttonHeight * 5;
 		float offset = buttonHeight;
