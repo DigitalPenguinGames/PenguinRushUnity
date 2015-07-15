@@ -21,7 +21,7 @@ public class CountTimerScript : MonoBehaviour {
 	void Start () {
 		restart();
 		// Tracking things
-		numberOfTries = PlayerPrefs.GetInt("trackNumberOfTries",0);
+		numberOfTries = PlayerPrefs.GetInt("trackTries",0);
 	}
 
 	// Update is called once per frame
@@ -52,7 +52,7 @@ public class CountTimerScript : MonoBehaviour {
 
 		// Tracking things
 		++numberOfTries;
-		PlayerPrefs.SetInt("trackNumberOfTries",numberOfTries);
+		PlayerPrefs.SetInt("trackTries",numberOfTries);
 	}
 
 	public void restart() {

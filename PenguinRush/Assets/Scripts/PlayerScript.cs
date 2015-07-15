@@ -24,8 +24,12 @@ public class PlayerScript : MonoBehaviour {
 
 	private bool canDie = false;
 
+	#if UNITY_STANDALONE || UNITY_WEBPLAYER
 	private string up;
 	private string down;
+	#endif
+	// Tracking things
+	private int numberOfJumps;
 
 	void Awake() {
 		transform.position = new Vector2(center.x - 3 , center.y);
@@ -33,6 +37,8 @@ public class PlayerScript : MonoBehaviour {
 		up = PlayerPrefs.GetString("keyUp","up");
 		down = PlayerPrefs.GetString("keyDown","down");
 		#endif
+		// Tracking things
+		numberOfJumps = PlayerPrefs.GetInt("trackJumps",0);
 	}
 
 	void OnDestroy() {
@@ -90,6 +96,10 @@ public class PlayerScript : MonoBehaviour {
 				movement.y = - gravity * jumptime;	
 				gravity *= inputY;
 				cutGravity = false;
+
+				// Tracking things
+				++numberOfJumps;
+				PlayerPrefs.SetInt("trackJumps",numberOfJumps);
 			}
 		}
 
