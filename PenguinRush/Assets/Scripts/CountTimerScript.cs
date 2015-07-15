@@ -14,6 +14,7 @@ public class CountTimerScript : MonoBehaviour {
 	private bool running = true;
 
 	private GameObject instance;
+	private float speedFactor;
 
 	void Start () {
 		restart();
@@ -31,7 +32,10 @@ public class CountTimerScript : MonoBehaviour {
 			startThings();
 		}
 		else if (timer < 0) ttimer.text = "GO!";
-		else ttimer.text = Mathf.Floor(0.99f+timer).ToString("F0");
+		else {
+			ttimer.text = Mathf.Floor(0.99f+timer).ToString("F0");
+			GetComponentInParent<ObstacleManager>().propagateSpeed(1+(speedFactor*timer/numbers));
+		}
 	}
 
 	void startThings() {
@@ -51,6 +55,7 @@ public class CountTimerScript : MonoBehaviour {
 		ttimer.text = (0.9f+timer).ToString("F0");
 		elapse = seconds;
 		running = true;
+		speedFactor = GetComponentInParent<ObstacleManager>().getSpeedFactor() - 1;
 	}
 
 	void spawnPlayer() {

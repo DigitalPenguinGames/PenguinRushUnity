@@ -7,7 +7,6 @@ public class OptionsScript : MonoBehaviour {
 
 	void Start() {
 		showScores = PlayerPrefs.GetInt("showScores",1) == 1;
-		print (showScores);
 	}
 
 	void OnGUI() {
@@ -31,7 +30,7 @@ public class OptionsScript : MonoBehaviour {
 			),showScores, ""));
 		PlayerPrefs.SetInt("showScores",showScores ? 1 : 0);
 		GUI.TextArea(new Rect(
-			Screen.width*0.5f/3 - (buttonWidth/2) + offset,
+			Screen.width*0.5f/3 - (buttonWidth/2) + buttonHeight * 0.6f,
 			Screen.height*1.8f/3 - (buttonHeight/2),
 			buttonWidth,
 			buttonHeight*1.2f

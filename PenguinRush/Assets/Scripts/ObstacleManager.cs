@@ -25,15 +25,8 @@ public class ObstacleManager : MonoBehaviour {
 		next -= Time.deltaTime;
 		if (next < 0) { // Spawn a new fish
 			if (!finished) {
-				// speed up the background
-				foreach ( GameObject g in Background) 
-					g.GetComponent<InfiniteMovement>().setSpeed(speedFactor);
+				propagateSpeed(speedFactor + 0.05f);
 
-
-				// speed up the fishes
-				gameObject.GetComponent<PropsManager>().setSpeedFactor(speedFactor);
-				
-				speedFactor += 0.05f;
 			}
 
 			Vector3 pos = new Vector3(0,Random.Range(position.x,position.y),0);
@@ -53,13 +46,16 @@ public class ObstacleManager : MonoBehaviour {
 		}
 	}
 
-	public void setFinished(bool f) {
-		finished = f;
+	public void propagateSpeed(float speed) {
+		speedFactor = speed;
+		// speed up the background
+		foreach ( GameObject g in Background) 
+			g.GetComponent<InfiniteMovement>().setSpeed(speed);
+
+		// speed up the fishes
+		gameObject.GetComponent<PropsManager>().setSpeedFactor(speed);
 	}
 
-	public bool getFinished(){
-		return finished;
-	}
 	
 	public void start() {
 		run = true;
@@ -72,4 +68,16 @@ public class ObstacleManager : MonoBehaviour {
 		run = false;
 	}
 
+	
+	public void setFinished(bool f) {
+		finished = f;
+	}
+	
+	public bool getFinished(){
+		return finished;
+	}
+
+	public float getSpeedFactor() {
+		return speedFactor;
+	}
 }
