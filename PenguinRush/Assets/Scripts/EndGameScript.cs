@@ -6,7 +6,6 @@ public class EndGameScript : MonoBehaviour {
 	void Awake() {
 		GetComponentInParent<ObstacleManager>().setFinished(true);
 		GetComponentInParent<Score>().stop();
-		GetComponentInParent<Score>().saveScore();
 		GetComponentInParent<Score>().enableTexFields(true);
 	}
 

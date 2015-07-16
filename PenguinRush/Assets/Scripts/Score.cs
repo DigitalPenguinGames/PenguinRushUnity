@@ -13,17 +13,21 @@ public class Score : MonoBehaviour {
 	private float highscore = 0;
 	private bool visible;
 
-	// Use this for initialization
+	// Tracking things
+	private float trackingTotalTime;
+	private float trackingTotalScore;
+
 	void Start () {
 		highscore = PlayerPrefs.GetFloat("HighScore");
 		visible = PlayerPrefs.GetInt("showScores",1) == 1;
 		score.text = "Score : 0";
 		highscoreT.text = "High Score : " + highscore.ToString("F0");
 		if (!visible) {
-			score.enabled = false;
-			highscoreT.enabled = false;
+			enableTexFields(false);
 		}
-
+		// Tracking things
+		trackingTotalTime = PlayerPrefs.GetFloat("trackTotalTime",0);
+		trackingTotalScore = PlayerPrefs.GetFloat("trackTotalScore",0);
 	}
 	
 	// Update is called once per frame
@@ -34,7 +38,13 @@ public class Score : MonoBehaviour {
 			if (time*factor > highscore) {
 				highscore = time*factor;
 				highscoreT.text = "Highscore : " + highscore.ToString("F0");
+				PlayerPrefs.SetFloat("HighScore",highscore);
 			}
+			// Tracking things
+			trackingTotalTime += Time.deltaTime;
+			trackingTotalScore += Time.deltaTime * factor;
+			PlayerPrefs.SetFloat("trackTotalTime", trackingTotalTime);
+			PlayerPrefs.SetFloat("trackTotalScore", trackingTotalScore);
 		}
 	}
 
@@ -49,10 +59,6 @@ public class Score : MonoBehaviour {
 
 	public void resetScore() {
 		time = 0;
-	}
-
-	public void saveScore() {
-		PlayerPrefs.SetFloat("HighScore",highscore);
 	}
 
 	public void enableTexFields(bool b) {
