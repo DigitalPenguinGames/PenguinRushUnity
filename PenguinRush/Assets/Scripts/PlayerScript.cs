@@ -145,16 +145,19 @@ public class PlayerScript : MonoBehaviour {
 		angularDirection = - Mathf.Pow(angularDirection*100,2) * Mathf.Sign(angularDirection);
 		*/
 
-
-
 		// jump Rotation
-		float distance = Mathf.Abs(center.y - transform.position.y);
+		float distance = Mathf.Abs(transform.position.y - center.y);
 		float jumpRotation = 360 + 180 - Mathf.Rad2Deg * Mathf.Atan2(movement.y,(movement.x-obstacleSpeed));
 		if(distance < 0.05 && (((jumpRotation%360) < 10) || ((jumpRotation%360) > 350))){
 			jumpRotation = 0;
 		}
 		transform.rotation = Quaternion.Euler(new Vector3(0,0,jumpRotation));
-		//print(jumpRotation+" ------------- "+rotation);
+	}
+
+	void OnTriggerEnter2D (Collider2D other) {
+		if (other.tag == "Goal") {
+			Destroy(other.gameObject, 0.1f);
+		}
 	}
 	
 	private float unityRotation(float degrees) {

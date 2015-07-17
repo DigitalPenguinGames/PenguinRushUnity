@@ -9,7 +9,7 @@ public class GoalScript : MonoBehaviour {
 	public float dist = 4.5f;
 	public Vector2 center = new Vector2(0,-0.15f);
 
-	private Vector2 movement = new Vector2(-1f,0);
+	private Vector2 movement = new Vector2(-2f,0);
 	private float gravity = -25f;
 
 	private enum dir {
@@ -43,7 +43,7 @@ public class GoalScript : MonoBehaviour {
 				lastJump = dir.down;
 			}
 			else {
-				inputY = Random.Range(0,1);
+				inputY = Random.Range(0,2);
 				if (inputY == 1) lastJump = dir.up;
 				else {
 					inputY = -1;
@@ -84,18 +84,16 @@ public class GoalScript : MonoBehaviour {
 
 		// Speed
 		GetComponent<Rigidbody2D>().velocity = movement;
-		
-		
-		
+
 		// jump Rotation
-		float distance = Mathf.Abs(center.y - transform.position.y);
+		float distance = Mathf.Abs(transform.position.y - center.y);
 		float jumpRotation = 360 + 180 - Mathf.Rad2Deg * Mathf.Atan2(movement.y,(movement.x-obstacleSpeed));
 		if(distance < 0.05 && (((jumpRotation%360) < 10) || ((jumpRotation%360) > 350))){
 			jumpRotation = 0;
 		}
 		transform.rotation = Quaternion.Euler(new Vector3(0,0,jumpRotation));
-		//print(jumpRotation+" ------------- "+rotation);
 	}
+	
 
 	public void newObstacle(GameObject obs, float speed) {
 		obstacle = obs;
@@ -110,6 +108,6 @@ public class GoalScript : MonoBehaviour {
 			goalPos = 0;
 		}
 		float dist = obsPos - goalPos;
-		return dist / obstacleSpeed;
+		return dist / (obstacleSpeed + movement.x);
 	}
 }

@@ -33,10 +33,10 @@ public class ObstacleManager : MonoBehaviour {
 		if (!run) return;
 		next -= Time.deltaTime;
 		if (next < 0) { // Spawn a new fish
-			if (!finished) {
+			//if (!finished) {
 				propagateSpeed(speedFactor + 0.05f);
 
-			}
+			//}
 
 			Vector3 pos = new Vector3(0,Random.Range(position.x,position.y),0);
 			GameObject instance = Instantiate(props[Random.Range(0,props.Length)],pos, Quaternion.identity) as GameObject;
@@ -55,13 +55,16 @@ public class ObstacleManager : MonoBehaviour {
 
 			if (true) { //speedFactor == Mathf.Floor(speedFactor)) {
 				GameObject insGoal = Instantiate(goal[0],pos,Quaternion.identity) as GameObject;
-				insGoal.transform.Translate(new Vector3(x,0,0));
+				float auxX = sizeOfBoard/2 + insGoal.GetComponent<SpriteRenderer>().sprite.bounds.size.x/2;
+				insGoal.transform.Translate(new Vector3(auxX,0,0));
 				insGoal.transform.SetParent(parent.transform);
-				instanceGoal.Add(insGoal);
+
 				foreach (GameObject i in instanceGoal) {
 					if (i != null) i.GetComponent<GoalScript>().newObstacle(instance,s);
 				}
 				instanceGoal.RemoveAll(item => item == null);
+				
+				instanceGoal.Add(insGoal);
 
 			}
 		}
