@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour {
 	public float dist = 4.5f;
 	public Vector2 center = new Vector2(-7,-0.15f);
 
-	public float rotationForce = 1;
+	//public float rotationForce = 1;
 
 	private Vector2 movement = new Vector2(0,0);
 	private float gravity = -25f;

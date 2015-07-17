@@ -7,6 +7,9 @@ TagManager:
   - Background
   - Middleground
   - Foreground
+  - Up
+  - Down
+  - Mix
   layers:
   - Default
   - TransparentFX

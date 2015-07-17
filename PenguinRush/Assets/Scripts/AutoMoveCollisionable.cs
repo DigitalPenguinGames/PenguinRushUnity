@@ -32,4 +32,5 @@ public class AutoMoveCollisionable : MonoBehaviour {
 	public void setRotation(float r) {
 		initRotation = r;
 	}
+	
 }

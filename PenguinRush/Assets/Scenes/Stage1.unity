@@ -898,6 +898,8 @@ MonoBehaviour:
   - {fileID: 177500, guid: eb0b4c424e5f9ba46832269ff62755dd, type: 2}
   parent: {fileID: 2016464097}
   player: {fileID: 0}
+  goal:
+  - {fileID: 150756, guid: d8e2b11f9065f984a926e805aeaad76b, type: 2}
   position: {x: 0, y: 0}
   time: {x: 300, y: 300}
   speed: {x: 600, y: 600}

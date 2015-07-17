@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\AutoMoveNoCollisionable.cs" />
      <Compile Include="Assets\Scripts\CountTimerScript.cs" />
      <Compile Include="Assets\Scripts\EndGameScript.cs" />
+     <Compile Include="Assets\Scripts\GoalScript.cs" />
      <Compile Include="Assets\Scripts\InfiniteMovement.cs" />
      <Compile Include="Assets\Scripts\Menu\MenuScript.cs" />
      <Compile Include="Assets\Scripts\Menu\OptionsScript.cs" />

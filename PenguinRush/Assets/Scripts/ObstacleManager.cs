@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ObstacleManager : MonoBehaviour {
 
@@ -7,6 +8,7 @@ public class ObstacleManager : MonoBehaviour {
 	public GameObject[] props;
 	public GameObject parent;
 	public GameObject player;
+	public GameObject[] goal;
 
 	public Vector2 position = new Vector2 (0f, 0f); // Y position at spawn
 	public Vector2 time = new Vector2(100,200); // centiseconds
@@ -18,7 +20,14 @@ public class ObstacleManager : MonoBehaviour {
 	private float speedFactor = 1;
 	private bool finished = false;
 	private bool run = false;
+
+	private List<GameObject> instanceGoal;
 	
+
+	void Start() {
+		instanceGoal = new List<GameObject>();
+	}
+
 	// Update is called once per frame
 	void Update () {
 		if (!run) return;
@@ -43,7 +52,20 @@ public class ObstacleManager : MonoBehaviour {
 			next = Random.Range(time.x,time.y)/100;
 			Destroy(instance,(instance.GetComponent<SpriteRenderer>().bounds.size.x + sizeOfBoard)/s +2	);
 			if ( player != null ) player.GetComponent<PlayerScript>().setObstacleSpeed(s);
+
+			if (true) { //speedFactor == Mathf.Floor(speedFactor)) {
+				GameObject insGoal = Instantiate(goal[0],pos,Quaternion.identity) as GameObject;
+				insGoal.transform.Translate(new Vector3(x,0,0));
+				insGoal.transform.SetParent(parent.transform);
+				instanceGoal.Add(insGoal);
+				foreach (GameObject i in instanceGoal) {
+					if (i != null) i.GetComponent<GoalScript>().newObstacle(instance,s);
+				}
+				instanceGoal.RemoveAll(item => item == null);
+
+			}
 		}
+		
 	}
 
 	public void propagateSpeed(float speed) {
