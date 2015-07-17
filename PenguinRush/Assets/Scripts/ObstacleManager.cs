@@ -21,11 +21,13 @@ public class ObstacleManager : MonoBehaviour {
 	private bool finished = false;
 	private bool run = false;
 
-	private List<GameObject> instanceGoal;
+	private GameObject instanceGoal;
+	private bool spawningGoal = false;
+	private int numberOfGoal;
 	
 
 	void Start() {
-		instanceGoal = new List<GameObject>();
+		instanceGoal = null;
 	}
 
 	// Update is called once per frame
@@ -53,20 +55,14 @@ public class ObstacleManager : MonoBehaviour {
 			Destroy(instance,(instance.GetComponent<SpriteRenderer>().bounds.size.x + sizeOfBoard)/s +2	);
 			if ( player != null ) player.GetComponent<PlayerScript>().setObstacleSpeed(s);
 
-			if (true) { //speedFactor == Mathf.Floor(speedFactor)) {
-				GameObject insGoal = Instantiate(goal[0],pos,Quaternion.identity) as GameObject;
-				float auxX = sizeOfBoard/2 + insGoal.GetComponent<SpriteRenderer>().sprite.bounds.size.x/2;
-				insGoal.transform.Translate(new Vector3(auxX,0,0));
-				insGoal.transform.SetParent(parent.transform);
-
-				foreach (GameObject i in instanceGoal) {
-					if (i != null) i.GetComponent<GoalScript>().newObstacle(instance,s);
-				}
-				instanceGoal.RemoveAll(item => item == null);
-				
-				instanceGoal.Add(insGoal);
-
+			if (spawningGoal) { //speedFactor == Mathf.Floor(speedFactor)) {
+				instanceGoal = Instantiate(goal[numberOfGoal-1],pos,Quaternion.identity) as GameObject;
+				float auxX = sizeOfBoard/2 + instanceGoal.GetComponent<SpriteRenderer>().sprite.bounds.size.x/2;
+				instanceGoal.transform.Translate(new Vector3(auxX,0,0));
+				instanceGoal.transform.SetParent(parent.transform);
+				spawningGoal = false;
 			}
+			if (instanceGoal != null) instanceGoal.GetComponent<GoalScript>().newObstacle(instance,s);
 		}
 		
 	}
@@ -104,5 +100,10 @@ public class ObstacleManager : MonoBehaviour {
 
 	public float getSpeedFactor() {
 		return speedFactor;
+	}
+
+	public void spawnGoal(int n) {
+		numberOfGoal = n;
+		spawningGoal = true;
 	}
 }

@@ -17,6 +17,15 @@ public class Score : MonoBehaviour {
 	private float trackingTotalTime;
 	private float trackingTotalScore;
 
+	private bool firstGoalB = false;
+	private bool secondGoalB = false;
+	private bool thirdGoalB = false;
+	public int firstGoalS;
+	public int secondGoalS;
+	public int thirdGoalS;
+
+
+
 	void Start () {
 		highscore = PlayerPrefs.GetFloat("HighScore");
 		visible = PlayerPrefs.GetInt("showScores",1) == 1;
@@ -33,6 +42,7 @@ public class Score : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (run) {
+			float auxGoalSpawner = time * factor;
 			time += Time.deltaTime;
 			score.text = "Score : " + (time * factor).ToString("F0");
 			if (time*factor > highscore) {
@@ -40,6 +50,19 @@ public class Score : MonoBehaviour {
 				highscoreT.text = "Highscore : " + highscore.ToString("F0");
 				PlayerPrefs.SetFloat("HighScore",highscore);
 			}
+			if (time*factor > firstGoalS && !firstGoalB) {
+				GetComponentInParent<ObstacleManager>().spawnGoal(1);
+				firstGoalB = true;
+			}
+			if (time*factor > secondGoalS && !secondGoalB) {
+				GetComponentInParent<ObstacleManager>().spawnGoal(2);
+				secondGoalB = true;
+			}
+			if (time*factor > thirdGoalS && !thirdGoalB) {
+				GetComponentInParent<ObstacleManager>().spawnGoal(3);
+				thirdGoalB = true;
+			}
+
 			// Tracking things
 			trackingTotalTime += Time.deltaTime;
 			trackingTotalScore += Time.deltaTime * factor;
