@@ -900,8 +900,8 @@ MonoBehaviour:
   player: {fileID: 0}
   goal:
   - {fileID: 150756, guid: d8e2b11f9065f984a926e805aeaad76b, type: 2}
-  - {fileID: 150756, guid: d8e2b11f9065f984a926e805aeaad76b, type: 2}
-  - {fileID: 150756, guid: d8e2b11f9065f984a926e805aeaad76b, type: 2}
+  - {fileID: 135064, guid: 62cce910a0167ed4aa9c7094e3e667cf, type: 2}
+  - {fileID: 194874, guid: acc599bacc8cb284ea7c0856fab10d40, type: 2}
   position: {x: 0, y: 0}
   time: {x: 300, y: 300}
   speed: {x: 600, y: 600}
@@ -939,9 +939,9 @@ MonoBehaviour:
   factor: 1337
   score: {fileID: 1374871633}
   highscoreT: {fileID: 789430441}
-  firstGoalS: 150000
-  secondGoalS: 225000
-  thirdGoalS: 300000
+  firstGoalS: 15000
+  secondGoalS: 22500
+  thirdGoalS: 30000
 --- !u!114 &1363556027
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,43 +1,43 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &150756
+--- !u!1 &194874
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 403512}
-  - 212: {fileID: 21244610}
-  - 60: {fileID: 6031666}
-  - 50: {fileID: 5056688}
-  - 114: {fileID: 11495614}
+  - 4: {fileID: 410248}
+  - 212: {fileID: 21209174}
+  - 60: {fileID: 6093104}
+  - 50: {fileID: 5038154}
+  - 114: {fileID: 11440638}
   m_Layer: 0
-  m_Name: goal
+  m_Name: goal3
   m_TagString: Goal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &403512
+--- !u!4 &410248
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 150756}
+  m_GameObject: {fileID: 194874}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.6418934, y: -1.30698133, z: 0}
+  m_LocalPosition: {x: -11.5299997, y: -2.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5056688
+--- !u!50 &5038154
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 150756}
+  m_GameObject: {fileID: 194874}
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
@@ -47,12 +47,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &6031666
+--- !u!60 &6093104
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 150756}
+  m_GameObject: {fileID: 194874}
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -75,12 +75,12 @@ PolygonCollider2D:
       - {x: .330000013, y: -.140000001}
       - {x: .379999995, y: -.0599999987}
       - {x: .379999995, y: .0500000007}
---- !u!114 &11495614
+--- !u!114 &11440638
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 150756}
+  m_GameObject: {fileID: 194874}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e517487a2119c644b0c2560d17b4178, type: 3}
@@ -90,12 +90,12 @@ MonoBehaviour:
   jumptime: .400000006
   dist: 4.5
   center: {x: 0, y: -.150000006}
---- !u!212 &21244610
+--- !u!212 &21209174
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 150756}
+  m_GameObject: {fileID: 194874}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -114,7 +114,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d120ec12015c65746adf235df9cebca0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c5ab8e1c6a18ddc4caa80ba3a6c56eb2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -124,18 +124,11 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalPosition.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_TagString
-      value: Goal
-      objectReference: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c5ab8e1c6a18ddc4caa80ba3a6c56eb2,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 150756}
+  m_RootGameObject: {fileID: 194874}
   m_IsPrefabParent: 1
