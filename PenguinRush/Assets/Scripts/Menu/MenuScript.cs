@@ -2,6 +2,12 @@
 
 public class MenuScript : MonoBehaviour {
 
+	private Lang lang;
+
+	void Start() {
+		lang = new Lang(Application.dataPath + "/Languajes/lang.xml", PlayerPrefs.GetString("languaje",Application.systemLanguage.ToString()));
+	}
+
 	void OnGUI() {
 		#if UNITY_STANDALONE || UNITY_WEBPLAYER
 		GUI.skin.button.fontSize = Screen.width/90;
@@ -19,7 +25,7 @@ public class MenuScript : MonoBehaviour {
 				Screen.height*1.8f/3 - (buttonHeight/2),
 				buttonWidth,
 				buttonHeight
-			),"Start!")) {
+			),lang.getString("menu_start")+"!")) {
 			Application.LoadLevel("Stage1");
 		}
 		if (GUI.Button(new Rect(
@@ -27,7 +33,7 @@ public class MenuScript : MonoBehaviour {
 			Screen.height*1.8f/3 - (buttonHeight/2) + offset,
 			buttonWidth,
 			buttonHeight
-			),"Options")) {
+			),lang.getString("menu_options"))) {
 			gameObject.AddComponent<OptionsScript>();
 			Destroy(this);
 		}
@@ -36,7 +42,7 @@ public class MenuScript : MonoBehaviour {
 			Screen.height*1.8f/3 - (buttonHeight/2) + 2 * offset,
 			buttonWidth,
 			buttonHeight
-			),"Stats")) {
+			),lang.getString("menu_stats"))) {
 			gameObject.AddComponent<StatsScript>();
 			Destroy(this);
 		}if (GUI.Button(new Rect(
@@ -44,7 +50,7 @@ public class MenuScript : MonoBehaviour {
 			Screen.height*1.8f/3 - (buttonHeight/2) + 3 * offset,
 			buttonWidth,
 			buttonHeight
-			),"Exit")) {
+			),lang.getString("menu_exit"))) {
 			Application.Quit();
 		}
 	}

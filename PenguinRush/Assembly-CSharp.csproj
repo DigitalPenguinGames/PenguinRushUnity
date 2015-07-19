@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Languajes\Lang.cs" />
      <Compile Include="Assets\Scripts\AutoMoveCollisionable.cs" />
      <Compile Include="Assets\Scripts\AutoMoveNoCollisionable.cs" />
      <Compile Include="Assets\Scripts\CountTimerScript.cs" />
@@ -61,6 +62,7 @@
      <Compile Include="Assets\Scripts\PlayerScript.cs" />
      <Compile Include="Assets\Scripts\PropsManager.cs" />
      <Compile Include="Assets\Scripts\Score.cs" />
+     <None Include="Assets\Languajes\lang.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

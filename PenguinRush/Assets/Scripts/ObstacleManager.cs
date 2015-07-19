@@ -55,7 +55,7 @@ public class ObstacleManager : MonoBehaviour {
 			Destroy(instance,(instance.GetComponent<SpriteRenderer>().bounds.size.x + sizeOfBoard)/s +2	);
 			if ( player != null ) player.GetComponent<PlayerScript>().setObstacleSpeed(s);
 
-			if (spawningGoal) { //speedFactor == Mathf.Floor(speedFactor)) {
+			if (spawningGoal) { 
 				instanceGoal = Instantiate(goal[numberOfGoal-1],pos,Quaternion.identity) as GameObject;
 				float auxX = sizeOfBoard/2 + instanceGoal.GetComponent<SpriteRenderer>().sprite.bounds.size.x/2;
 				instanceGoal.transform.Translate(new Vector3(auxX,0,0));

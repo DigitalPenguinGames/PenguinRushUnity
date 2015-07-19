@@ -17,6 +17,7 @@ public class Score : MonoBehaviour {
 	private float trackingTotalTime;
 	private float trackingTotalScore;
 
+	// Goal
 	private bool firstGoalB = false;
 	private bool secondGoalB = false;
 	private bool thirdGoalB = false;
@@ -24,30 +25,34 @@ public class Score : MonoBehaviour {
 	public int secondGoalS;
 	public int thirdGoalS;
 
-
+	// Languaje
+	Lang lang;
 
 	void Start () {
+		// Languaje
+		lang = new Lang(Application.dataPath + "/Languajes/lang.xml", PlayerPrefs.GetString("languaje",Application.systemLanguage.ToString()));
+
 		highscore = PlayerPrefs.GetFloat("HighScore");
 		visible = PlayerPrefs.GetInt("showScores",1) == 1;
-		score.text = "Score : 0";
-		highscoreT.text = "High Score : " + highscore.ToString("F0");
+		score.text = lang.getString("stage_score") + " : 0";
+		highscoreT.text = lang.getString("stage_high_score") + " : " + highscore.ToString("F0");
 		if (!visible) {
 			enableTexFields(false);
 		}
 		// Tracking things
 		trackingTotalTime = PlayerPrefs.GetFloat("trackTotalTime",0);
 		trackingTotalScore = PlayerPrefs.GetFloat("trackTotalScore",0);
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (run) {
-			float auxGoalSpawner = time * factor;
 			time += Time.deltaTime;
-			score.text = "Score : " + (time * factor).ToString("F0");
+			score.text = lang.getString("stage_score") +" : " + (time * factor).ToString("F0");
 			if (time*factor > highscore) {
 				highscore = time*factor;
-				highscoreT.text = "Highscore : " + highscore.ToString("F0");
+				highscoreT.text = lang.getString("stage_high_score") + " : " + highscore.ToString("F0");
 				PlayerPrefs.SetFloat("HighScore",highscore);
 			}
 			if (time*factor > firstGoalS && !firstGoalB) {
@@ -82,6 +87,11 @@ public class Score : MonoBehaviour {
 
 	public void resetScore() {
 		time = 0;
+		// Pensar en si tienen qe volver a aparecer o no
+		firstGoalB = false;
+		secondGoalB = false;
+		thirdGoalB = false;
+
 	}
 
 	public void enableTexFields(bool b) {

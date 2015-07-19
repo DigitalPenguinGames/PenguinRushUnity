@@ -54,6 +54,7 @@
      <Compile Include="Assets\Editor\WakaTime\PythonManager.cs" />
      <Compile Include="Assets\Editor\WakaTime\SceneDirtyChecker.cs" />
      <Compile Include="Assets\Editor\WakaTime\Window.cs" />
+     <None Include="Assets\Languajes\lang.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

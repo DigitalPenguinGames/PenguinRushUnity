@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<languages>
+	<!-- English -->
+	<Default>
+     	<string name="app_name">Penguin Rush</string>
+		<string name="menu_start">Start</string>
+		<string name="menu_options">Options</string>
+		<string name="menu_stats">Stats</string>
+		<string name="menu_exit">Exit</string>
+		<string name="stage_score">Score</string>
+		<string name="stage_high_score">Highscore</string>
+	</Default>
+
+	<Spanish>
+		<string name="menu_start">Jugar</string>
+		<string name="menu_options">Opciones</string>
+		<string name="menu_stats">Estadisticas</string>
+		<string name="menu_exit">Salir</string>
+		<string name="stage_score">Puntuacion</string>
+		<string name="stage_high_score">Maxima Puntuacion</string>
+	</Spanish>
+</languages>

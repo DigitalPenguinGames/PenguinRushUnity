@@ -36,10 +36,6 @@ public class EndGameScript : MonoBehaviour {
 			buttonHeight
 			),"Menu")) {
 			Application.LoadLevel("Menu");
-
-		}
-		
-	}
-
-
+		}	
+	}	
 }
