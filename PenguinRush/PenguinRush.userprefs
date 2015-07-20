@@ -1,10 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Languajes\lang.xml">
     <Files>
-      <File FileName="Assets\Scripts\Score.cs" Line="88" Column="1" />
+      <File FileName="Assets\Languajes\Lang.cs" Line="39" Column="31" />
+      <File FileName="Assets\Scripts\Score.cs" Line="46" Column="2" />
       <File FileName="Assets\Scripts\GoalScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Menu\StatsScript.cs" Line="113" Column="11" />
+      <File FileName="Assets\Scripts\Menu\StatsScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Menu\OptionsScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\CountTimerScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PlayerScript.cs" Line="1" Column="1" />
@@ -12,9 +13,9 @@
       <File FileName="Assets\Scripts\ObstacleManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PauseScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PauseMenu.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Menu\MenuScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Menu\MenuScript.cs" Line="8" Column="53" />
       <File FileName="Assets\Scripts\AutoMoveCollisionable.cs" Line="1" Column="1" />
-      <File FileName="Assets\Languajes\lang.xml" Line="1" Column="1" />
+      <File FileName="Assets\Languajes\lang.xml" Line="20" Column="52" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

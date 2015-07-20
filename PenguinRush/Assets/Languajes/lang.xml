@@ -9,6 +9,8 @@
 		<string name="menu_exit">Exit</string>
 		<string name="stage_score">Score</string>
 		<string name="stage_high_score">Highscore</string>
+		<string name="stage_menu">Menu</string>
+		<string name="stage_resume">Resume</string>
 	</Default>
 
 	<Spanish>
@@ -18,5 +20,7 @@
 		<string name="menu_exit">Salir</string>
 		<string name="stage_score">Puntuacion</string>
 		<string name="stage_high_score">Maxima Puntuacion</string>
+		<!-- Menu -->
+		<string name="stage_resume">Reanudar</string>
 	</Spanish>
 </languages>

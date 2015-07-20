@@ -3,6 +3,12 @@ using System.Collections;
 
 public class PauseMenu : MonoBehaviour {
 
+	private Lang lang;
+	
+	void Start() {
+		lang = new Lang(Application.dataPath + "/Languajes/lang.xml", PlayerPrefs.GetString("languaje",Application.systemLanguage.ToString()));
+	}
+
 	void OnGUI() {
 		#if UNITY_STANDALONE || UNITY_WEBPLAYER
 		GUI.skin.button.fontSize = Screen.width/90;
@@ -21,7 +27,7 @@ public class PauseMenu : MonoBehaviour {
 			Screen.height*0.9f/2 - (buttonHeight/2),
 			buttonWidth,
 			buttonHeight
-			),"Menu")) {
+			),lang.getString("stage_menu"))) {
 			GetComponentInParent<PauseScript>().quitPause();
 			Application.LoadLevel("Menu");
 		}
@@ -31,7 +37,7 @@ public class PauseMenu : MonoBehaviour {
 			Screen.height*1.1f/2 - (buttonHeight/2),
 			buttonWidth,
 			buttonHeight
-			),"Resume!")) {
+			),lang.getString("stage_resume")+"!")) {
 			GetComponentInParent<PauseScript>().quitPause();
 		}
 	}
