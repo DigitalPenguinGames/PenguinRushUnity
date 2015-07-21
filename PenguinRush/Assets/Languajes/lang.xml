@@ -21,6 +21,6 @@
 		<string name="stage_score">Puntuacion</string>
 		<string name="stage_high_score">Maxima Puntuacion</string>
 		<!-- Menu -->
-		<string name="stage_resume">Reanudar</string>
+		<string name="stage_resume">Reanudar</string> 
 	</Spanish>
 </languages>

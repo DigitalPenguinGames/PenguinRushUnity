@@ -57,35 +57,43 @@ public class Lang
     setLanguageWeb function
     */
 	public void setLanguage ( string path, string language) {
-		var xml = new XmlDocument();
-		xml.Load(path);
-		
-		Strings = new Hashtable();
-		var element = xml.DocumentElement[language];
-		if (element != null) {
-			var elemEnum = element.GetEnumerator();
-			while (elemEnum.MoveNext()) {
-				var xmlItem = (XmlElement)elemEnum.Current;
-				Strings.Add(xmlItem.GetAttribute("name"), xmlItem.InnerText);
+		XmlReaderSettings readerSettings = new XmlReaderSettings();
+		readerSettings.IgnoreComments = true;
+		using (XmlReader reader = XmlReader.Create(path, readerSettings)) {
+			var xml = new XmlDocument();
+			xml.Load(reader);
+			
+			Strings = new Hashtable();
+			var element = xml.DocumentElement[language];
+			if (element != null) {
+				var elemEnum = element.GetEnumerator();
+				while (elemEnum.MoveNext()) {
+					XmlElement xmlItem = (XmlElement) elemEnum.Current;
+					Strings.Add(xmlItem.GetAttribute("name"), xmlItem.InnerText);
+				}
+			} else {
+				Debug.LogError("The specified language does not exist: " + language);
 			}
-		} else {
-			Debug.LogError("The specified language does not exist: " + language);
 		}
 	}
 	public void setLanguageD ( string path) {
-		var xml = new XmlDocument();
-		xml.Load(path);
-		
-		Defaults = new Hashtable();
-		var element = xml.DocumentElement["Default"];
-		if (element != null) {
-			var elemEnum = element.GetEnumerator();
-			while (elemEnum.MoveNext()) {
-				var xmlItem = (XmlElement)elemEnum.Current;
-				Defaults.Add(xmlItem.GetAttribute("name"), xmlItem.InnerText);
+		XmlReaderSettings readerSettings = new XmlReaderSettings();
+		readerSettings.IgnoreComments = true;
+		using (XmlReader reader = XmlReader.Create(path, readerSettings)) {
+			var xml = new XmlDocument();
+			xml.Load(reader);
+			
+			Defaults = new Hashtable();
+			var element = xml.DocumentElement["Default"];
+			if (element != null) {
+				var elemEnum = element.GetEnumerator();
+				while (elemEnum.MoveNext()) {
+					var xmlItem = (XmlElement)elemEnum.Current;
+					Defaults.Add(xmlItem.GetAttribute("name"), xmlItem.InnerText);
+				}
+			} else {
+				Debug.LogError("The specified language does not exist: " + "Default");
 			}
-		} else {
-			Debug.LogError("The specified language does not exist: " + "Default");
 		}
 	}
 
