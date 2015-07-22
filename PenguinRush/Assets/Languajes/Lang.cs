@@ -35,7 +35,7 @@ public class Lang
     Lang lang = new Lang(wwwXML.text, currentLang)
     */
 	public Lang ( string path, string language) {
-		if (language == defaultLang) {
+		if (language == defaultLang || !existLanguaje(path, language)) {
 			setLanguage(path, "Default");
 			differentLangs = false;
 		}
@@ -130,4 +130,9 @@ public class Lang
 		return (string)Strings[name];
 	}
 	
+	bool existLanguaje (string path, string language) {
+		var xml = new XmlDocument();
+		xml.Load(path);
+		return (xml.DocumentElement[language] != null);
+	}
 }
