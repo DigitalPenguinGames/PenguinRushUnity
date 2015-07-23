@@ -1,16 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Languajes\Lang.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Menu\OptionsScript.cs">
     <Files>
+      <File FileName="Assets\Scripts\PlayerScript.cs" Line="41" Column="3" />
       <File FileName="Assets\Languajes\lang.xml" Line="1" Column="1" />
       <File FileName="Assets\Languajes\Lang.cs" Line="133" Column="53" />
       <File FileName="Assets\Scripts\PauseMenu.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Score.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\GoalScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Menu\StatsScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Menu\OptionsScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Menu\OptionsScript.cs" Line="58" Column="21" />
       <File FileName="Assets\Scripts\CountTimerScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PlayerScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\EndGameScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\ObstacleManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PauseScript.cs" Line="1" Column="1" />

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
 
@@ -27,6 +27,8 @@ public class PlayerScript : MonoBehaviour {
 	#if UNITY_STANDALONE || UNITY_WEBPLAYER
 	private string up;
 	private string down;
+	#elif UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
+	private bool touchTypeHorizontal;
 	#endif
 	// Tracking things
 	private int numberOfJumps;
@@ -36,6 +38,8 @@ public class PlayerScript : MonoBehaviour {
 		#if UNITY_STANDALONE || UNITY_WEBPLAYER
 		up = PlayerPrefs.GetString("keyUp","up");
 		down = PlayerPrefs.GetString("keyDown","down");
+		#elif UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
+		touchTypeHorizontal = PlayerPrefs.GetInt("touchTypeHorizontal",1) == 1;
 		#endif
 		// Tracking things
 		numberOfJumps = PlayerPrefs.GetInt("trackJumps",0);
@@ -74,8 +78,14 @@ public class PlayerScript : MonoBehaviour {
 				
 				if(myTouch.phase == TouchPhase.Began){
 					float position = myTouch.position.y;
-					if(position >= Screen.width/2) verticalInput = 1;
-					else verticalInput = -1;
+					if(touchTypeHorizontal) {
+						if (position >= Screen.width/2) verticalInput = 1;
+						else verticalInput = -1;
+					}
+					else {
+						if (position <= Screen.height/2) verticalInput = 1;
+						else verticalInput = -1
+					}
 				}
 			}
 			#endif

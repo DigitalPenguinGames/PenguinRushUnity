@@ -4,9 +4,15 @@ using System.Collections;
 public class OptionsScript : MonoBehaviour {
 
 	private bool showScores;
+	#if UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
+	private bool touchType;
+	#endif
 
 	void Start() {
 		showScores = PlayerPrefs.GetInt("showScores",1) == 1;
+		#if UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
+		touchType = PlayerPrefs.GetInt("touchType",1) == 1;
+		#endif
 	}
 
 	void OnGUI() {
@@ -36,7 +42,26 @@ public class OptionsScript : MonoBehaviour {
 			buttonWidth,
 			buttonHeight*1.2f
 			),"Show scores while playing?");
+		
+		#if UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
 
+		touchType = (GUI.Toggle(new Rect(
+			Screen.width*0.5f/3 - (buttonWidth/2),
+			Screen.height*2.2f/3 - (buttonHeight/2),
+			buttonWidth,
+			buttonHeight
+			),touchType, "Horizontal"));
+		PlayerPrefs.SetInt("touchTypeHorizontal",touchType ? 1 : 0);
+
+		touchType = !(GUI.Toggle(new Rect(
+			Screen.width*0.5f/3 - (buttonWidth/2),
+			Screen.height*2.2f/3 - (buttonHeight/2) + buttonHeight,
+			buttonWidth,
+			buttonHeight
+			),!touchType, "Vertical"));
+		PlayerPrefs.SetInt("touchTypeHorizontal",!touchType ? 1 : 0);
+		
+		#endif
 
 		if (GUI.Button(new Rect(
 			Screen.width*0.5f/3 - (buttonWidth/2),
