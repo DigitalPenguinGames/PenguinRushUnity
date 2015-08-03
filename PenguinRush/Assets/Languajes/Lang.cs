@@ -34,14 +34,14 @@ public class Lang
      
     Lang lang = new Lang(wwwXML.text, currentLang)
     */
-	public Lang ( string path, string language) {
-		if (language == defaultLang || !existLanguaje(path, language)) {
-			setLanguage(path, "Default");
+	public Lang (TextAsset text, string language) {
+		if (language == defaultLang || !existLanguaje(text, language)) {
+			setLanguage(text, "Default");
 			differentLangs = false;
 		}
 		else {
-			setLanguage(path, language);
-			setLanguageD(path);
+			setLanguage(text, language);
+			setLanguageD(text);
 			differentLangs = true;
 		}
 	}
@@ -56,10 +56,10 @@ public class Lang
     If the XML resource is stored on the web rather than on the local system use the
     setLanguageWeb function
     */
-	public void setLanguage ( string path, string language) {
+	public void setLanguage (TextAsset text, string language) {
 		XmlReaderSettings readerSettings = new XmlReaderSettings();
 		readerSettings.IgnoreComments = true;
-		using (XmlReader reader = XmlReader.Create(path, readerSettings)) {
+		using (XmlReader reader = XmlReader.Create(new StringReader(text.text), readerSettings)) {
 			var xml = new XmlDocument();
 			xml.Load(reader);
 			
@@ -76,10 +76,10 @@ public class Lang
 			}
 		}
 	}
-	public void setLanguageD ( string path) {
+	public void setLanguageD (TextAsset text) {
 		XmlReaderSettings readerSettings = new XmlReaderSettings();
 		readerSettings.IgnoreComments = true;
-		using (XmlReader reader = XmlReader.Create(path, readerSettings)) {
+		using (XmlReader reader = XmlReader.Create(new StringReader(text.text), readerSettings)) {
 			var xml = new XmlDocument();
 			xml.Load(reader);
 			
@@ -130,9 +130,10 @@ public class Lang
 		return (string)Strings[name];
 	}
 	
-	bool existLanguaje (string path, string language) {
+	bool existLanguaje (TextAsset text, string language) {
 		var xml = new XmlDocument();
-		xml.Load(path);
+		xml.LoadXml(text.text);
+		Debug.Break();
 		return (xml.DocumentElement[language] != null);
 	}
 }

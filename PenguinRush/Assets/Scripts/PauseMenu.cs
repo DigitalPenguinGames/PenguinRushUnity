@@ -6,7 +6,7 @@ public class PauseMenu : MonoBehaviour {
 	private Lang lang;
 	
 	void Start() {
-		lang = new Lang(Application.dataPath + "/Languajes/lang.xml", PlayerPrefs.GetString("languaje",Application.systemLanguage.ToString()));
+		lang = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LangManager>().lang;
 	}
 
 	void OnGUI() {

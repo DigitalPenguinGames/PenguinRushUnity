@@ -84,7 +84,7 @@ public class PlayerScript : MonoBehaviour {
 					}
 					else {
 						if (position <= Screen.height/2) verticalInput = 1;
-						else verticalInput = -1
+						else verticalInput = -1;
 					}
 				}
 			}

@@ -51,15 +51,13 @@ public class OptionsScript : MonoBehaviour {
 			buttonWidth,
 			buttonHeight
 			),touchType, "Horizontal"));
-		PlayerPrefs.SetInt("touchTypeHorizontal",touchType ? 1 : 0);
-
 		touchType = !(GUI.Toggle(new Rect(
 			Screen.width*0.5f/3 - (buttonWidth/2),
 			Screen.height*2.2f/3 - (buttonHeight/2) + buttonHeight,
 			buttonWidth,
 			buttonHeight
 			),!touchType, "Vertical"));
-		PlayerPrefs.SetInt("touchTypeHorizontal",!touchType ? 1 : 0);
+		PlayerPrefs.SetInt("touchTypeHorizontal",touchType ? 1 : 0);
 		
 		#endif
 

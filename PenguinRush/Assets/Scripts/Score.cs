@@ -30,7 +30,7 @@ public class Score : MonoBehaviour {
 
 	void Start () {
 		// Languaje
-		lang = new Lang(Application.dataPath + "/Languajes/lang.xml", PlayerPrefs.GetString("languaje",Application.systemLanguage.ToString()));
+		lang = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LangManager>().lang;
 
 		highscore = PlayerPrefs.GetFloat("HighScore");
 		visible = PlayerPrefs.GetInt("showScores",1) == 1;
