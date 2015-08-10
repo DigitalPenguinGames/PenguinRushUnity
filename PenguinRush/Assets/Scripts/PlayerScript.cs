@@ -166,6 +166,7 @@ public class PlayerScript : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D other) {
 		if (other.tag == "Goal") {
+			if (other.name == "goal3(Clone)") Application.LoadLevel("Stage2");
 			Destroy(other.gameObject, 0.1f);
 		}
 	}

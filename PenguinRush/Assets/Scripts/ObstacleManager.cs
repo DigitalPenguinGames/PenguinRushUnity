@@ -60,6 +60,7 @@ public class ObstacleManager : MonoBehaviour {
 				float auxX = sizeOfBoard/2 + instanceGoal.GetComponent<SpriteRenderer>().sprite.bounds.size.x/2;
 				instanceGoal.transform.Translate(new Vector3(auxX,0,0));
 				instanceGoal.transform.SetParent(parent.transform);
+				//instanceGoal.name = "goal" + numberOfGoal;
 				spawningGoal = false;
 			}
 			if (instanceGoal != null) instanceGoal.GetComponent<GoalScript>().newObstacle(instance,s);
