@@ -4,7 +4,7 @@ using System.Collections;
 public class EndGameScript : MonoBehaviour {
 
 	void Awake() {
-		GetComponentInParent<ObstacleManager>().setFinished(true);
+		GetComponentInParent<ObstacleSpawner>().setFinished(true);
 		GetComponentInParent<Score>().stop();
 		GetComponentInParent<Score>().enableTexFields(true);
 	}

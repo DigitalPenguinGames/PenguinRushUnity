@@ -24,6 +24,8 @@ public class PlayerScript : MonoBehaviour {
 
 	private bool canDie = false;
 
+	private bool collisioning = false;
+
 	#if UNITY_STANDALONE || UNITY_WEBPLAYER
 	private string up;
 	private string down;
@@ -145,7 +147,8 @@ public class PlayerScript : MonoBehaviour {
 		}
 
 		// Horizontal Speed
-		movement.x = center.x - transform.position.x;
+		if (!collisioning) movement.x = center.x - transform.position.x;
+		collisioning = false;
 		// Speed
 		GetComponent<Rigidbody2D>().velocity = movement;
 
@@ -168,9 +171,21 @@ public class PlayerScript : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D other) {
 		if (other.tag == "Goal") {
-			if (other.name == "goal3(Clone)") Application.LoadLevel("Stage2");
+			if (other.name == "goal3(Clone)") Application.LoadLevel("Stage2");// Change this pls T.T
 			Destroy(other.gameObject, 0.1f);
 		}
+	}
+
+	void OnCollisionEnter2D(Collision2D other) {
+		if (other.gameObject.tag == "Mix" || 
+		    other.gameObject.tag == "Down" ||
+		    other.gameObject.tag == "Up") collisioning = true;
+	}
+
+	void OnCollisionStay2D(Collision2D other) {
+		if (other.gameObject.tag == "Mix" || 
+		    other.gameObject.tag == "Down" ||
+		    other.gameObject.tag == "Up") collisioning = true;
 	}
 	
 	private float unityRotation(float degrees) {

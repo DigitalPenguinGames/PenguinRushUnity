@@ -56,15 +56,15 @@ public class Score : MonoBehaviour {
 				PlayerPrefs.SetFloat("HighScore",highscore);
 			}
 			if (time*factor > firstGoalS && !firstGoalB) {
-				GetComponentInParent<ObstacleManager>().spawnGoal(1);
+				GetComponentInParent<ObstacleSpawner>().spawnGoal(1);
 				firstGoalB = true;
 			}
 			if (time*factor > secondGoalS && !secondGoalB) {
-				GetComponentInParent<ObstacleManager>().spawnGoal(2);
+				GetComponentInParent<ObstacleSpawner>().spawnGoal(2);
 				secondGoalB = true;
 			}
 			if (time*factor > thirdGoalS && !thirdGoalB) {
-				GetComponentInParent<ObstacleManager>().spawnGoal(3);
+				GetComponentInParent<ObstacleSpawner>().spawnGoal(3);
 				thirdGoalB = true;
 			}
 

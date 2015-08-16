@@ -63,7 +63,7 @@ public class CountTimerScript : MonoBehaviour {
 		ttimer.text = (0.9f+timer).ToString("F0");
 		elapse = seconds;
 		running = true;
-		speedFactor = GetComponentInParent<ObstacleManager>().getSpeedFactor() - 1;
+		speedFactor = GetComponentInParent<ObstacleSpawner>().getSpeedFactor() - 1;
 	}
 
 	void spawnPlayer() {
@@ -73,6 +73,6 @@ public class CountTimerScript : MonoBehaviour {
 		instance.tag = "Player";
 		instance.GetComponent<PlayerScript>().scripts = gameObject;
 		instance.GetComponent<PolygonCollider2D>().enabled = false;
-		GetComponentInParent<ObstacleManager>().player = instance;
+		GetComponentInParent<ObstacleSpawner>().player = instance;
 	}
 }

@@ -848,6 +848,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1363556023}
+  - 114: {fileID: 1363556029}
   - 114: {fileID: 1363556024}
   - 114: {fileID: 1363556025}
   - 114: {fileID: 1363556026}
@@ -906,6 +907,7 @@ MonoBehaviour:
   time: {x: 100, y: 100}
   speed: {x: 600, y: 600}
   rotation: {x: 0, y: 20}
+  manager: {fileID: 0}
 --- !u!114 &1363556025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -941,7 +943,7 @@ MonoBehaviour:
   highscoreT: {fileID: 789430441}
   firstGoalS: 150000
   secondGoalS: 225000
-  thirdGoalS: 30000
+  thirdGoalS: 300000
 --- !u!114 &1363556027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -965,6 +967,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39f3bf438f485f041880f0b5e76f37d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1363556029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1363556022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b1e5c786ecdc734eb935f2f881bfe8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1374871631
