@@ -103,7 +103,8 @@ public class PlayerScript : MonoBehaviour {
 				// a = (xf - xi)* factor    factor = 1/ (1/2*t_2)
 				float factor = 2f/(jumptime * jumptime); //inversa de   1/2 * temps al quadrat
 				gravity = factor * (transform.position.y - (center.y + inputY*dist));
-				movement.y = - gravity * jumptime;	
+				movement.y = - gravity * jumptime;
+				GetComponent<Rigidbody2D>().velocity = movement;
 				gravity *= inputY;
 				cutGravity = false;
 
@@ -124,6 +125,7 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
+		movement = GetComponent<Rigidbody2D>().velocity;
 
 		// Gravity
 		if(lastJump == dir.up) movement.y += gravity*Time.fixedDeltaTime;

@@ -11,9 +11,9 @@ public class ObstacleManager : MonoBehaviour {
 	public GameObject[] goal;
 
 	public Vector2 position = new Vector2 (0f, 0f); // Y position at spawn
-	public Vector2 time = new Vector2(100,200); // centiseconds
-	public Vector2 speed = new Vector2(400,400); //centiseconds 
-	public Vector2 rotation = new Vector2(90,90);
+	public Vector2 time = new Vector2(300,300); // centiseconds
+	public Vector2 speed = new Vector2(600,600); //centiseconds 
+	public Vector2 rotation = new Vector2(0,20);
 	
 	private float next = 0;
 	private float sizeOfBoard = 19;

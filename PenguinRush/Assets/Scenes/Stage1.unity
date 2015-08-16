@@ -939,9 +939,9 @@ MonoBehaviour:
   factor: 1337
   score: {fileID: 1374871633}
   highscoreT: {fileID: 789430441}
-  firstGoalS: 15000
-  secondGoalS: 22500
-  thirdGoalS: 30000
+  firstGoalS: 150000
+  secondGoalS: 225000
+  thirdGoalS: 300000
 --- !u!114 &1363556027
 MonoBehaviour:
   m_ObjectHideFlags: 0
