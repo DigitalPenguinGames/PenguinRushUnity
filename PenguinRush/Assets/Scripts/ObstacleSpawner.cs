@@ -85,6 +85,7 @@ public class ObstacleSpawner : MonoBehaviour {
 	public void start() {
 		run = true;
 		finished = false;
+		timeFactor = 1;
 		speedFactor = 1;
 		next = 0;
 	}
