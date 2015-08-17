@@ -18,7 +18,7 @@ public class EndGameScript : MonoBehaviour {
 		#elif UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
 		float buttonHeight = Screen.height * 1/10;
 		float buttonWidth = buttonHeight * 5;
-		float RectOffset = buttonHeight;
+		float offset = buttonHeight;
 		#endif
 		if (GUI.Button(new Rect(
 				Screen.width/2 - (buttonWidth/2),
@@ -31,7 +31,7 @@ public class EndGameScript : MonoBehaviour {
 		}
 		if (GUI.Button(new Rect(
 			Screen.width/2 - (buttonWidth/2),
-			Screen.height/2 + (buttonHeight*1.1f),
+			Screen.height/2 - (buttonHeight*1.1f) + offset,
 			buttonWidth,
 			buttonHeight
 			),"Menu")) {

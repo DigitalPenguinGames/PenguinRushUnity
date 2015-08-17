@@ -27,7 +27,6 @@ public class ObstacleManager : MonoBehaviour {
 	public void spawningAnother() {
 		float time;
 		float speedFactor;
-		float timeFactor;
 		switch (spawningPatter) {
 		case 1:
 			// The props are always at the same distance ( faster and sooner)

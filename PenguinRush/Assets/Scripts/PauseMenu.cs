@@ -34,7 +34,7 @@ public class PauseMenu : MonoBehaviour {
 		
 		if (GUI.Button(new Rect(
 			Screen.width/2 - (buttonWidth/2),
-			Screen.height*1.1f/2 - (buttonHeight/2),
+			Screen.height*0.9f/2 - (buttonHeight/2) + offset,
 			buttonWidth,
 			buttonHeight
 			),lang.getString("stage_resume")+"!")) {
