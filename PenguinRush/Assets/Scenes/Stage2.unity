@@ -854,6 +854,7 @@ GameObject:
   - 114: {fileID: 1363556026}
   - 114: {fileID: 1363556027}
   - 114: {fileID: 1363556028}
+  - 114: {fileID: 1363556030}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -904,10 +905,10 @@ MonoBehaviour:
   - {fileID: 135064, guid: 62cce910a0167ed4aa9c7094e3e667cf, type: 2}
   - {fileID: 194874, guid: acc599bacc8cb284ea7c0856fab10d40, type: 2}
   position: {x: 0, y: 0}
-  time: {x: 100, y: 100}
+  time: {x: 300, y: 300}
   speed: {x: 600, y: 600}
   rotation: {x: 0, y: 20}
-  manager: {fileID: 0}
+  manager: {fileID: 1363556029}
 --- !u!114 &1363556025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -980,6 +981,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b1e5c786ecdc734eb935f2f881bfe8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 1363556024}
+  spawningPatter: 1
+--- !u!114 &1363556030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1363556022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a780c152406504c89e065d2ce077c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene: Stage3
 --- !u!1 &1374871631
 GameObject:
   m_ObjectHideFlags: 0

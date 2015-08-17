@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\Menu\MenuScript.cs" />
      <Compile Include="Assets\Scripts\Menu\OptionsScript.cs" />
      <Compile Include="Assets\Scripts\Menu\StatsScript.cs" />
+     <Compile Include="Assets\Scripts\NextLevelScript.cs" />
      <Compile Include="Assets\Scripts\ObstacleManager.cs" />
      <Compile Include="Assets\Scripts\ObstacleSpawner.cs" />
      <Compile Include="Assets\Scripts\PauseMenu.cs" />

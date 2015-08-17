@@ -171,7 +171,7 @@ public class PlayerScript : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D other) {
 		if (other.tag == "Goal") {
-			if (other.name == "goal3(Clone)") Application.LoadLevel("Stage2");// Change this pls T.T
+			if (other.name == "goal3(Clone)") scripts.GetComponent<NextLevelScript>().nextLevel();
 			Destroy(other.gameObject, 0.1f);
 		}
 	}
