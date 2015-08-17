@@ -982,7 +982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 1363556024}
-  spawningPatter: 0
+  spawningPatter: 2
 --- !u!114 &1363556030
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -114,6 +114,8 @@ public class PlayerScript : MonoBehaviour {
 				++numberOfJumps;
 				PlayerPrefs.SetInt("trackJumps",numberOfJumps);
 			}
+
+
 		}
 
 		//PARTICLES STUFFS
@@ -124,6 +126,18 @@ public class PlayerScript : MonoBehaviour {
 		else {
 			GetComponentInChildren<ParticleSystem>().emissionRate = 80;
 		}
+
+		if (transform.position.y > center.y && lastJump == dir.down && movement.y > 0) { // Too high
+			Debug.LogWarning("The penguin was going up");
+			Debug.LogWarning("y: " + transform.position.y + " dir: " + lastJump + " speed: " + movement.y);
+			lastJump = dir.up;
+		}
+		else if (transform.position.y < center.y && lastJump == dir.up && movement.y < 0) { // Too low
+			Debug.LogWarning("The penguin was going down");
+			Debug.LogWarning("y: " + transform.position.y + " dir: " + lastJump + " speed: " + movement.y);
+			lastJump = dir.down;
+		}
+
 	}
 
 	void FixedUpdate() {

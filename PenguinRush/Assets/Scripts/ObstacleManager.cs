@@ -35,14 +35,14 @@ public class ObstacleManager : MonoBehaviour {
 			speedFactor += 0.02f;
 			time = distance / (spawner.speed.x * speedFactor);
 			if (time > 100) {
-				spawner.setTimeFactor(spawner.time.x/time);	
+				spawner.setTimeFactor(time/spawner.time.x);	
 				spawner.propagateSpeed(speedFactor);
 			}
 			break;
 		case 2:
 			// Legacy
-			time = spawner.time.x * spawner.getTimeFactor() * 0.98f;
-			spawner.setTimeFactor(time/spawner.time.x);
+			time = spawner.time.x * spawner.getTimeFactor() * 0.985f;
+			if (time > 90) spawner.setTimeFactor(time/spawner.time.x);
 			break;
 		default:
 			// First type of spawning 
