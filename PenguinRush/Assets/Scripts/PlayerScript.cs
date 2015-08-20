@@ -179,8 +179,9 @@ public class PlayerScript : MonoBehaviour {
 		float jumpRotation = 360 + 180 - Mathf.Rad2Deg * Mathf.Atan2(movement.y,(movement.x-obstacleSpeed));
 		if(distance < 0.05 && (((jumpRotation%360) < 10) || ((jumpRotation%360) > 350))){
 			jumpRotation = 0;
+			if (!collisioning) GetComponent<Rigidbody2D>().angularVelocity = 0;
 		}
-		transform.rotation = Quaternion.Euler(new Vector3(0,0,jumpRotation));
+		if (!collisioning) transform.rotation = Quaternion.Euler(new Vector3(0,0,jumpRotation%360));
 	}
 
 	void OnTriggerEnter2D (Collider2D other) {
