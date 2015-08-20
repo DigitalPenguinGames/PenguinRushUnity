@@ -53,5 +53,31 @@ public class MenuScript : MonoBehaviour {
 			),lang.getString("menu_exit"))) {
 			Application.Quit();
 		}
+
+		// For testing on the build
+		if (GUI.Button(new Rect(
+			Screen.width*1.5f/3 - (buttonWidth/2),
+			Screen.height*1.8f/3 - (buttonHeight/2),
+			buttonWidth,
+			buttonHeight
+			),"Nivel 1")) {
+			Application.LoadLevel("Stage1");
+		}
+		if (GUI.Button(new Rect(
+			Screen.width*1.5f/3 - (buttonWidth/2),
+			Screen.height*1.8f/3 - (buttonHeight/2) + offset,
+			buttonWidth,
+			buttonHeight
+			),"Nivel 2")) {
+			Application.LoadLevel("Stage2");
+		}
+		if (GUI.Button(new Rect(
+			Screen.width*1.5f/3 - (buttonWidth/2),
+			Screen.height*1.8f/3 - (buttonHeight/2) + 2 * offset,
+			buttonWidth,
+			buttonHeight
+			),"Nivel 3")) {
+			Application.LoadLevel("Stage3");
+		}
 	}
 }

@@ -19,6 +19,7 @@ public class PlayerScript : MonoBehaviour {
 
 	private bool cutGravity = false;
 	private dir lastJump = dir.none;
+	private float lastRotation = 0;
 
 	private float obstacleSpeed = 6;
 
@@ -177,11 +178,34 @@ public class PlayerScript : MonoBehaviour {
 		// jump Rotation
 		float distance = Mathf.Abs(transform.position.y - center.y);
 		float jumpRotation = 360 + 180 - Mathf.Rad2Deg * Mathf.Atan2(movement.y,(movement.x-obstacleSpeed));
+		float diff = 0;
 		if(distance < 0.05 && (((jumpRotation%360) < 10) || ((jumpRotation%360) > 350))){
 			jumpRotation = 0;
 			if (!collisioning) GetComponent<Rigidbody2D>().angularVelocity = 0;
 		}
-		if (!collisioning) transform.rotation = Quaternion.Euler(new Vector3(0,0,jumpRotation%360));
+		else {
+			float aux = jumpRotation % 360;
+
+			//Debug.Log("Diff " +diff);
+			if (lastRotation > 180 && aux < 180) {
+				//Debug.Log("aux " + aux + " last " + lastRotation + " diff " + (360 - lastRotation + aux));
+				diff = 360 - lastRotation + aux;
+			}
+			else if (lastRotation < 180 && aux > 180 ) {
+				//Debug.Log("aux " + aux + " last " + lastRotation + " diff " + (-360 - lastRotation + aux));
+				diff = -360 - lastRotation + aux;
+			}
+			else { 
+				//Debug.Log("aux " + aux + " last " + lastRotation + " diff " + (aux - lastRotation));
+				diff = aux - lastRotation;
+			}
+
+			diff = Mathf.Min(10,Mathf.Max(-10,diff));
+		}
+		//if (diff != 0) lastRotation = (lastRotation + diff) % 360; 
+		//else 
+		lastRotation = (jumpRotation) % 360;
+		if (!collisioning) transform.rotation = Quaternion.Euler(new Vector3(0,0,lastRotation));
 	}
 
 	void OnTriggerEnter2D (Collider2D other) {
