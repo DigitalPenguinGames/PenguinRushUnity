@@ -66,3 +66,5 @@ PenguinRush/Assets/Editor/
 PenguinRush/PenguinRush.userprefs
 PenguinRush/PenguinRush.sln
 PenguinRush/PenguinRush-csharp.sln
+PenguinRush/Assembly-CSharp-Editor-vs.csproj
+PenguinRush/Assembly-CSharp-Editor.csproj
