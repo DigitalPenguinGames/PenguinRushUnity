@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GoalScript : MonoBehaviour {
 
@@ -20,6 +21,7 @@ public class GoalScript : MonoBehaviour {
 	private dir lastJump = dir.none;
 
 	private float obstacleSpeed = 6;
+	private List<GameObject> obstacles;
 	private GameObject obstacle;
 
 	void OnDestroy() {
@@ -31,7 +33,7 @@ public class GoalScript : MonoBehaviour {
 			Destroy(gameObject);
 		}
 		// jump!
-		if (obstacle != null && timeToCollision() < jumptime) {
+		if (obstacles.Count != 0 && timeToCollision() < jumptime && lastJump == dir.none) {
 			int inputY = 0;
 
 			if (obstacle.tag == "Up") {
@@ -58,6 +60,7 @@ public class GoalScript : MonoBehaviour {
 				movement.y = - gravity * jumptime;	
 				gravity *= inputY;
 				cutGravity = false;
+				obstacles.Remove(obstacle);
 				obstacle = null;
 			}
 		}
@@ -96,18 +99,26 @@ public class GoalScript : MonoBehaviour {
 	
 
 	public void newObstacle(GameObject obs, float speed) {
-		obstacle = obs;
+		if (obstacles == null) obstacles = new List<GameObject>();
+		obstacles.Add(obs);
 		obstacleSpeed = speed;
 	}
 
 	private float timeToCollision() {
-		float obsPos = obstacle.transform.position.x;
-		float goalPos = transform.position.x;
-		if (goalPos < 0) {
-			obsPos -= goalPos;
-			goalPos = 0;
+		float aux = float.MaxValue;
+		foreach (GameObject obs in obstacles) {
+			float obsPos = obs.transform.position.x;
+			float goalPos = transform.position.x;
+			if (goalPos < 0) {
+				obsPos -= goalPos;
+				goalPos = 0;
+			}
+			float dist = obsPos - goalPos;
+			if (dist / (obstacleSpeed + movement.x) < aux) {
+				aux = dist / (obstacleSpeed + movement.x);
+				obstacle = obs;
+			}
 		}
-		float dist = obsPos - goalPos;
-		return dist / (obstacleSpeed + movement.x);
+		return aux;
 	}
 }

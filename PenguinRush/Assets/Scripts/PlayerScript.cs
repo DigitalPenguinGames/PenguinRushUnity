@@ -1,4 +1,5 @@
 using UnityEngine;
+using XInputDotNetPure; // Required in C#
 
 public class PlayerScript : MonoBehaviour {
 
@@ -30,11 +31,19 @@ public class PlayerScript : MonoBehaviour {
 	#if UNITY_STANDALONE || UNITY_WEBPLAYER
 	private string up;
 	private string down;
+	// Rumble Thing
+	private bool playerIndexSet = false;
+	private PlayerIndex playerIndex;
+	private GamePadState state;
+	private float rumbleCount = 0;
+	const float rumbleTime = 0.2f;
 	#elif UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
 	private bool touchTypeHorizontal;
 	#endif
 	// Tracking things
 	private int numberOfJumps;
+
+
 
 	void Awake() {
 		transform.position = new Vector2(center.x - 3 , center.y);
@@ -54,6 +63,15 @@ public class PlayerScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
+		//Rumble Thing
+		#if UNITY_STANDALONE || UNITY_WEBPLAYER
+		if (!playerIndexSet || !state.IsConnected) getPlayerIndex();
+		if (state.IsConnected) {
+			rumbleCount -= Time.deltaTime;
+			if (rumbleCount < 0) GamePad.SetVibration(playerIndex,0,0);
+		}
+		#endif
 		// Is dead?
 		//print("trnas " + transform.position.x + " bounds " + GetComponent<Renderer>().bounds.size.x + " screen " + Screen.width);
 		if (canDie && Mathf.Abs( transform.position.x) - GetComponent<Renderer>().bounds.size.x/2 >  19f/2) {
@@ -114,6 +132,15 @@ public class PlayerScript : MonoBehaviour {
 				// Tracking things
 				++numberOfJumps;
 				PlayerPrefs.SetInt("trackJumps",numberOfJumps);
+
+				#if UNITY_STANDALONE || UNITY_WEBPLAYER
+				//Rumble Thing
+				state = GamePad.GetState(playerIndex);
+				if (state.IsConnected) {
+					GamePad.SetVibration(playerIndex,1,1);
+					rumbleCount = rumbleTime;
+				}
+				#endif	
 			}
 
 
@@ -239,4 +266,20 @@ public class PlayerScript : MonoBehaviour {
 	public void setCanDie(bool b) {
 		canDie = b;
 	}
+
+	// Rumble Thing
+	void getPlayerIndex () {
+		for (int i = 0; i < 4; ++i)
+		{
+			PlayerIndex testPlayerIndex = (PlayerIndex)i;
+			GamePadState testState = GamePad.GetState(testPlayerIndex);
+			if (testState.IsConnected)
+			{
+				Debug.Log(string.Format("GamePad found {0}", testPlayerIndex));
+				playerIndex = testPlayerIndex;
+				playerIndexSet = true;
+			}
+		}
+	}
+
 }
