@@ -267,6 +267,7 @@ public class PlayerScript : MonoBehaviour {
 		canDie = b;
 	}
 
+	#if UNITY_STANDALONE || UNITY_WEBPLAYER
 	// Rumble Thing
 	void getPlayerIndex () {
 		for (int i = 0; i < 4; ++i)
@@ -281,5 +282,6 @@ public class PlayerScript : MonoBehaviour {
 			}
 		}
 	}
+	#endif
 
 }

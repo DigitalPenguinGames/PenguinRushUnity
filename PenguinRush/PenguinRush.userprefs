@@ -1,16 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ObstacleManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayerScript.cs" Line="174" Column="90" />
-      <File FileName="Assets\Scripts\GoalScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\CountTimerScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ObstacleManager.cs" Line="16" Column="1" />
-      <File FileName="Assets\Scripts\ObstacleSpawner.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EndGameScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PauseScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Score.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\NextLevelScript.cs" Line="9" Column="36" />
+      <File FileName="Assets\Scripts\PlayerScript.cs" Line="288" Column="1" />
+      <File FileName="Assets\Scripts\GoalScript.cs" Line="125" Column="1" />
+      <File FileName="Assets\Scripts\CountTimerScript.cs" Line="79" Column="1" />
+      <File FileName="Assets\Scripts\ObstacleManager.cs" Line="56" Column="1" />
+      <File FileName="Assets\Scripts\ObstacleSpawner.cs" Line="123" Column="1" />
+      <File FileName="Assets\Scripts\EndGameScript.cs" Line="42" Column="1" />
+      <File FileName="Assets\Scripts\PauseScript.cs" Line="27" Column="1" />
+      <File FileName="Assets\Scripts\Score.cs" Line="102" Column="1" />
+      <File FileName="Assets\Scripts\NextLevelScript.cs" Line="12" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

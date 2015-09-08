@@ -32,6 +32,11 @@ public class Score : MonoBehaviour {
 		// Languaje
 		lang = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LangManager>().lang;
 
+		if (PlayerPrefs.GetInt ("endlessMode", 0) == 1) {
+			thirdGoalS *= 100;
+			PlayerPrefs.DeleteKey("endlessMode");
+		}
+
 		highscore = PlayerPrefs.GetFloat("HighScore");
 		visible = PlayerPrefs.GetInt("showScores",1) == 1;
 		score.text = lang.getString("stage_score") + " : 0";

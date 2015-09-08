@@ -60,7 +60,8 @@ public class MenuScript : MonoBehaviour {
 			Screen.height*1.8f/3 - (buttonHeight/2),
 			buttonWidth,
 			buttonHeight
-			),"Nivel 1")) {
+			),"Nivel 1 Endless")) {
+			PlayerPrefs.SetInt("endlessMode",1);
 			Application.LoadLevel("Stage1");
 		}
 		if (GUI.Button(new Rect(
@@ -68,7 +69,8 @@ public class MenuScript : MonoBehaviour {
 			Screen.height*1.8f/3 - (buttonHeight/2) + offset,
 			buttonWidth,
 			buttonHeight
-			),"Nivel 2")) {
+			),"Nivel 2 Endless")) {
+			PlayerPrefs.SetInt("endlessMode",1);
 			Application.LoadLevel("Stage2");
 		}
 		if (GUI.Button(new Rect(
@@ -76,7 +78,8 @@ public class MenuScript : MonoBehaviour {
 			Screen.height*1.8f/3 - (buttonHeight/2) + 2 * offset,
 			buttonWidth,
 			buttonHeight
-			),"Nivel 3")) {
+			),"Nivel 3 Endless")) {
+			PlayerPrefs.SetInt("endlessMode",1);
 			Application.LoadLevel("Stage3");
 		}
 	}
